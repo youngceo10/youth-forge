@@ -17,14 +17,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 relative flex-shrink-0">
-                <Image 
-                  src="/logo-transparent.png" 
-                  alt="Youth Forge" 
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-contain brightness-0 invert"
-                  loading="lazy"
-                />
+                <StaticLogo className="w-full h-full" />
               </div>
               <div>
                 <h3 className="font-bold text-2xl">Youth Forge</h3>
