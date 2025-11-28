@@ -35,74 +35,126 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative z-10"
             >
-              {/* Magnifying Glass Container */}
+              {/* Magnifying Glass Container with Globe */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.3 }}
                 className="relative mb-8"
               >
-                {/* Magnifying Glass SVG */}
-                <div className="relative inline-block w-full max-w-md">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-yf-primary-700 mb-6">
+                  Youth Forge
+                </h1>
+                
+                {/* Magnifying Glass SVG with Globe */}
+                <div className="relative inline-block w-full max-w-sm">
                   <motion.div
                     animate={{ 
-                      rotate: [0, -3, 3, -3, 0],
-                      y: [0, -5, 5, -5, 0]
+                      rotate: [0, -2, 2, -2, 0],
+                      y: [0, -8, 0, -8, 0]
                     }}
                     transition={{ 
-                      duration: 6,
+                      duration: 8,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
                     className="relative"
                   >
-                    <svg viewBox="0 0 400 180" className="w-full h-auto drop-shadow-lg">
+                    <svg viewBox="0 0 300 140" className="w-full h-auto drop-shadow-2xl">
                       {/* Magnifying Glass Circle */}
                       <circle 
-                        cx="90" 
-                        cy="90" 
-                        r="75" 
-                        fill="rgba(154, 205, 230, 0.1)" 
+                        cx="70" 
+                        cy="70" 
+                        r="60" 
+                        fill="rgba(154, 205, 230, 0.05)" 
                         stroke="#9ACDE6" 
-                        strokeWidth="4"
+                        strokeWidth="5"
                       />
                       
                       {/* Magnifying Glass Handle */}
-                      <motion.line 
-                        x1="140" 
-                        y1="140" 
-                        x2="180" 
-                        y2="180" 
+                      <line 
+                        x1="115" 
+                        y1="115" 
+                        x2="150" 
+                        y2="150" 
                         stroke="#9ACDE6" 
-                        strokeWidth="10" 
+                        strokeWidth="12" 
                         strokeLinecap="round"
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        style={{ transformOrigin: '140px 140px' }}
                       />
                       
-                      {/* Search icon inside */}
-                      <motion.g
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <circle cx="90" cy="85" r="20" fill="none" stroke="#3B82A3" strokeWidth="3" />
-                        <line x1="105" y1="100" x2="115" y2="110" stroke="#3B82A3" strokeWidth="3" strokeLinecap="round" />
-                      </motion.g>
-                      
-                      {/* Text inside magnifying glass */}
-                      <foreignObject x="20" y="100" width="140" height="80">
-                        <div className="text-center px-2">
-                          <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.2 }}
-                            className="text-2xl sm:text-3xl font-bold text-yf-primary-700"
-                          >
-                            Youth Forge
-                          </motion.div>
-                        </div>
-                      </foreignObject>
+                      {/* Globe inside magnifying glass */}
+                      <g transform="translate(70, 70)">
+                        {/* Globe circle */}
+                        <motion.circle 
+                          cx="0" 
+                          cy="0" 
+                          r="40" 
+                          fill="#6BB5D9"
+                          animate={{ scale: [1, 1.05, 1] }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                        />
+                        
+                        {/* Latitude lines */}
+                        <ellipse cx="0" cy="0" rx="40" ry="12" fill="none" stroke="white" strokeWidth="1.5" opacity="0.6" />
+                        <ellipse cx="0" cy="0" rx="40" ry="24" fill="none" stroke="white" strokeWidth="1.5" opacity="0.6" />
+                        
+                        {/* Longitude lines */}
+                        <motion.path 
+                          d="M -40 0 Q -20 -20, 0 0 Q 20 20, 40 0" 
+                          fill="none" 
+                          stroke="white" 
+                          strokeWidth="1.5" 
+                          opacity="0.6"
+                          animate={{ d: [
+                            "M -40 0 Q -20 -20, 0 0 Q 20 20, 40 0",
+                            "M -40 0 Q -20 20, 0 0 Q 20 -20, 40 0",
+                            "M -40 0 Q -20 -20, 0 0 Q 20 20, 40 0"
+                          ]}}
+                          transition={{ duration: 4, repeat: Infinity }}
+                        />
+                        <motion.path 
+                          d="M -40 0 Q -20 20, 0 0 Q 20 -20, 40 0" 
+                          fill="none" 
+                          stroke="white" 
+                          strokeWidth="1.5" 
+                          opacity="0.6"
+                          animate={{ d: [
+                            "M -40 0 Q -20 20, 0 0 Q 20 -20, 40 0",
+                            "M -40 0 Q -20 -20, 0 0 Q 20 20, 40 0",
+                            "M -40 0 Q -20 20, 0 0 Q 20 -20, 40 0"
+                          ]}}
+                          transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+                        />
+                        
+                        {/* Center meridian */}
+                        <ellipse cx="0" cy="0" rx="10" ry="40" fill="none" stroke="white" strokeWidth="1.5" opacity="0.7" />
+                        
+                        {/* Sparkle dots representing global research */}
+                        <motion.circle 
+                          cx="-15" 
+                          cy="-20" 
+                          r="2.5" 
+                          fill="#FFDC00"
+                          animate={{ scale: [0, 1.2, 0], opacity: [0, 1, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+                        />
+                        <motion.circle 
+                          cx="20" 
+                          cy="15" 
+                          r="2.5" 
+                          fill="#7BC043"
+                          animate={{ scale: [0, 1.2, 0], opacity: [0, 1, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: 0.7 }}
+                        />
+                        <motion.circle 
+                          cx="-25" 
+                          cy="10" 
+                          r="2.5" 
+                          fill="#EF3E36"
+                          animate={{ scale: [0, 1.2, 0], opacity: [0, 1, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, delay: 1.4 }}
+                        />
+                      </g>
                     </svg>
                   </motion.div>
                 </div>
@@ -172,8 +224,8 @@ export default function Home() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop&q=80"
-                  alt="Diverse youth collaborating on entrepreneurship projects"
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=80"
+                  alt="Young entrepreneur writing business plan and research notes"
                   width={1200}
                   height={800}
                   className="w-full h-auto"
