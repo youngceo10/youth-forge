@@ -50,11 +50,11 @@ export default function Home() {
                 <div className="relative inline-block w-full max-w-md">
                   <motion.div
                     animate={{ 
-                      rotate: [0, -2, 2, -2, 0],
-                      y: [0, -10, 0]
+                      y: [0, -12, 0],
+                      scale: [1, 1.03, 1]
                     }}
                     transition={{ 
-                      duration: 8,
+                      duration: 4,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
@@ -68,7 +68,7 @@ export default function Home() {
                             rotate: [0, 360]
                           }}
                           transition={{ 
-                            duration: 30,
+                            duration: 20,
                             repeat: Infinity,
                             ease: "linear"
                           }}
@@ -82,17 +82,25 @@ export default function Home() {
                       </g>
                       
                       {/* Magnifying Glass */}
-                      <circle 
+                      <motion.circle 
                         cx="90" 
                         cy="100" 
                         r="80" 
                         fill="rgba(154, 205, 230, 0.08)" 
                         stroke="#3B82A3" 
                         strokeWidth="6"
+                        animate={{ 
+                          strokeWidth: [6, 7, 6]
+                        }}
+                        transition={{ 
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
                       />
                       
                       {/* Magnifying Glass Handle */}
-                      <motion.line 
+                      <line 
                         x1="150" 
                         y1="160" 
                         x2="200" 
@@ -100,9 +108,6 @@ export default function Home() {
                         stroke="#2D627A" 
                         strokeWidth="14" 
                         strokeLinecap="round"
-                        animate={{ rotate: [0, -3, 3, 0] }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        style={{ transformOrigin: '150px 160px' }}
                       />
                     </svg>
                   </motion.div>
