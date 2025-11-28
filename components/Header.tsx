@@ -13,31 +13,23 @@ export default function Header() {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Chapters', href: '/chapters' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Research Network', href: '/chapters' },
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-yf-blue-100/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-yf-primary-200/30 shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
             <div className="w-8 h-8 sm:w-10 sm:h-10 relative flex-shrink-0">
-              <Image 
-                src="/logo-transparent.png" 
-                alt="Youth Forge Logo" 
-                width={40}
-                height={40}
-                className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                priority
-              />
+              <StaticLogo className="w-full h-full transition-transform group-hover:scale-105" />
             </div>
             <div>
-              <div className="font-bold text-lg sm:text-xl text-yf-blue-300 tracking-tight">
+              <div className="font-bold text-lg sm:text-xl text-yf-primary-700 tracking-tight">
                 Youth Forge
               </div>
-              <div className="hidden sm:block text-xs text-yf-blue-100 -mt-1">
+              <div className="hidden sm:block text-xs text-yf-primary-600 -mt-1">
                 Challenging the status quo
               </div>
             </div>
@@ -49,7 +41,7 @@ export default function Header() {
               <motion.div key={item.name} whileHover={{ scale: 1.05 }}>
                 <Link
                   href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-yf-blue-200 hover:text-yf-blue-300 hover:bg-yf-blue-50/30 rounded transition-all"
+                  className="px-4 py-2 text-sm font-medium text-yf-primary-700 hover:text-yf-primary-800 hover:bg-yf-primary-50 rounded transition-all"
                 >
                   {item.name}
                 </Link>
@@ -58,7 +50,7 @@ export default function Header() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
-                className="ml-4 px-6 py-2 bg-yf-blue-300 text-white text-sm font-medium rounded hover:bg-yf-blue-200 transition-all shadow-sm hover:shadow-md"
+                className="ml-4 px-6 py-2 bg-yf-primary text-white text-sm font-medium rounded hover:bg-yf-primary-600 transition-all shadow-sm hover:shadow-md"
               >
                 Get Involved
               </Link>
@@ -68,7 +60,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-yf-blue-300 hover:bg-yf-blue-50/30 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-yf-blue-300 focus:ring-offset-2"
+            className="md:hidden p-2 text-yf-primary-700 hover:bg-yf-primary-50 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-yf-primary focus:ring-offset-2"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -99,7 +91,7 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block px-4 py-2 text-sm font-medium text-yf-blue-200 hover:text-yf-blue-300 hover:bg-yf-blue-50/30 rounded transition-all"
+                    className="block px-4 py-2 text-sm font-medium text-yf-primary-700 hover:text-yf-primary-800 hover:bg-yf-primary-50 rounded transition-all"
                   >
                     {item.name}
                   </Link>
@@ -107,7 +99,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block mx-4 mt-4 px-6 py-2 bg-yf-blue-300 text-white text-sm font-medium text-center rounded hover:bg-yf-blue-200 transition-all"
+                  className="block mx-4 mt-4 px-6 py-2 bg-yf-primary text-white text-sm font-medium text-center rounded hover:bg-yf-primary-600 transition-all"
                 >
                   Get Involved
                 </Link>

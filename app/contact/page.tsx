@@ -50,7 +50,7 @@ export default function ContactPage() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
+      <section className="relative py-24 bg-gradient-to-b from-yf-primary-100/30 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,10 +58,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-yf-blue-300 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-yf-primary-700 mb-6">
               Get Involved
             </h1>
-            <p className="text-xl text-yf-blue-200/80 leading-relaxed">
+            <p className="text-xl text-yf-primary-600/80 leading-relaxed">
               Join our global movement to break down barriers for young entrepreneurs. 
               Whether you&apos;re a researcher, founder, or advocate, there&apos;s a place for you at Youth Forge.
             </p>
@@ -79,10 +79,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-yf-blue-300 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-yf-primary-700 mb-6">
               Ways to Contribute
             </h2>
-            <p className="text-xl text-yf-blue-200/80 max-w-3xl mx-auto">
+            <p className="text-xl text-yf-primary-600/80 max-w-3xl mx-auto">
               We&apos;re always looking for passionate young people to join our team.
             </p>
           </motion.div>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-8 border-2 border-yf-blue-50 hover:border-yf-blue-100 hover:shadow-xl transition-all group"
+                  className="bg-white rounded-xl p-8 border-2 border-yf-primary-100 hover:border-yf-primary-200 hover:shadow-xl transition-all group"
                 >
                   <div 
                     className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   >
                     {opp.title}
                   </h3>
-                  <p className="text-yf-blue-200/70 text-sm leading-relaxed">
+                  <p className="text-yf-primary-600/70 text-sm leading-relaxed">
                     {opp.description}
                   </p>
                 </motion.div>
@@ -137,7 +137,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-gradient-to-b from-white to-yf-blue-50/20">
+      <section className="py-20 bg-gradient-to-b from-white to-yf-primary-100/20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Form */}
@@ -147,16 +147,16 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-yf-blue-300 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-yf-primary-700 mb-6">
                 Send Us a Message
               </h2>
-              <p className="text-yf-blue-200/80 mb-8">
+              <p className="text-yf-primary-600/80 mb-8">
                 Have questions or want to learn more? Fill out the form and we&apos;ll get back to you soon.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-yf-blue-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-yf-primary-700 mb-2">
                     Full Name
                   </label>
                   <input
@@ -165,14 +165,14 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-blue-50 rounded-lg focus:outline-none focus:border-yf-blue-300 focus:ring-2 focus:ring-yf-blue-300/20 transition-colors"
+                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 focus:ring-2 focus:ring-yf-primary-700/20 transition-colors"
                     placeholder="Your name"
                     aria-required="true"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-yf-blue-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-yf-primary-700 mb-2">
                     Email Address
                   </label>
                   <input
@@ -181,20 +181,20 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-blue-50 rounded-lg focus:outline-none focus:border-yf-blue-300 transition-colors"
+                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="interest" className="block text-sm font-medium text-yf-blue-300 mb-2">
+                  <label htmlFor="interest" className="block text-sm font-medium text-yf-primary-700 mb-2">
                     I&apos;m interested in
                   </label>
                   <select
                     id="interest"
                     value={formData.interest}
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-blue-50 rounded-lg focus:outline-none focus:border-yf-blue-300 transition-colors"
+                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors"
                   >
                     <option value="general">General Inquiry</option>
                     <option value="research">Research Internship</option>
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-yf-blue-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-yf-primary-700 mb-2">
                     Message
                   </label>
                   <textarea
@@ -214,14 +214,14 @@ export default function ContactPage() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-blue-50 rounded-lg focus:outline-none focus:border-yf-blue-300 transition-colors resize-none"
+                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors resize-none"
                     placeholder="Tell us more about your interest..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-yf-blue-300 text-white rounded-lg font-medium hover:bg-yf-blue-200 transition-all hover:shadow-lg"
+                  className="w-full px-8 py-4 bg-yf-primary-700 text-white rounded-lg font-medium hover:bg-yf-primary-600 transition-all hover:shadow-lg"
                 >
                   {submitted ? '✓ Message Sent!' : 'Send Message'}
                 </button>
@@ -236,8 +236,8 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="bg-white rounded-xl p-8 border-2 border-yf-blue-50">
-                <h3 className="text-2xl font-bold text-yf-blue-300 mb-6">
+              <div className="bg-white rounded-xl p-8 border-2 border-yf-primary-100">
+                <h3 className="text-2xl font-bold text-yf-primary-700 mb-6">
                   Quick Info
                 </h3>
                 <div className="space-y-4">
@@ -249,8 +249,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium text-yf-blue-300 mb-1">Email</div>
-                      <a href="mailto:hello@youthforge.org" className="text-yf-blue-200/70 hover:text-yf-blue-300 transition-colors">
+                      <div className="font-medium text-yf-primary-700 mb-1">Email</div>
+                      <a href="mailto:hello@youthforge.org" className="text-yf-primary-600/70 hover:text-yf-primary-700 transition-colors">
                         hello@youthforge.org
                       </a>
                     </div>
@@ -263,8 +263,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium text-yf-blue-300 mb-1">Response Time</div>
-                      <div className="text-yf-blue-200/70">
+                      <div className="font-medium text-yf-primary-700 mb-1">Response Time</div>
+                      <div className="text-yf-primary-600/70">
                         Within 48 hours
                       </div>
                     </div>
@@ -277,8 +277,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium text-yf-blue-300 mb-1">Global Presence</div>
-                      <div className="text-yf-blue-200/70">
+                      <div className="font-medium text-yf-primary-700 mb-1">Global Presence</div>
+                      <div className="text-yf-primary-600/70">
                         8+ countries worldwide
                       </div>
                     </div>
@@ -286,7 +286,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-yf-blue-300 to-yf-blue-200 rounded-xl p-8 text-white">
+              <div className="bg-gradient-to-br from-yf-primary-700 to-yf-primary-600 rounded-xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-4">
                   Join Our Community
                 </h3>

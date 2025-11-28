@@ -66,7 +66,7 @@ export default function AboutPage() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
+      <section className="relative py-24 bg-gradient-to-b from-yf-primary-50/30 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,13 +74,13 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-yf-blue-300 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-yf-primary-700 mb-6">
               Who We Are
             </h1>
-            <p className="text-xl text-yf-blue-200/80 leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Youth Forge is a global market research organization focused on uncovering the 
-              hidden challenges faced by young entrepreneurs under the age of 25, with a special 
-              focus on under 18 founders.
+              hidden challenges faced by young entrepreneurs under the age of 18, advocating 
+              for youth innovation and inclusion regardless of age.
             </p>
           </motion.div>
         </div>
@@ -97,8 +97,8 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-32 h-32 bg-yf-blue-100/20 rounded-full blur-2xl"></div>
-                <div className="relative bg-yf-blue-300 text-white rounded-2xl p-12">
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-yf-primary-100/20 rounded-full blur-2xl"></div>
+                <div className="relative bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white rounded-2xl p-12 shadow-xl">
                   <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
                   <p className="text-lg leading-relaxed text-white/90 mb-6">
                     We provide a platform for youth voices and shape the future of entrepreneurship 
@@ -120,18 +120,18 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="bg-gradient-to-br from-yf-blue-50/50 to-white border border-yf-blue-100/30 rounded-xl p-8">
-                <h3 className="text-2xl font-bold text-yf-blue-300 mb-4">Why We Exist</h3>
-                <p className="text-yf-blue-200/80 leading-relaxed">
+              <div className="bg-gradient-to-br from-yf-primary-50/50 to-white border border-yf-primary-200/30 rounded-xl p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-yf-primary-700 mb-4">Why We Exist</h3>
+                <p className="text-gray-600 leading-relaxed">
                   A large majority of teens dream of entrepreneurship, but very few realize this 
                   dream early due to systemic barriers. We exist to change that reality.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-yf-blue-50/50 to-white border border-yf-blue-100/30 rounded-xl p-8">
-                <h3 className="text-2xl font-bold text-yf-blue-300 mb-4">What Makes Us Different</h3>
-                <p className="text-yf-blue-200/80 leading-relaxed">
-                  We focus specifically on founders under 25, often overlooked by other research 
+              <div className="bg-gradient-to-br from-yf-primary-50/50 to-white border border-yf-primary-200/30 rounded-xl p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-yf-primary-700 mb-4">What Makes Us Different</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  We focus specifically on founders under 18, often overlooked by other research 
                   entities, involving young researchers and experts collaborating to challenge the 
                   status quo.
                 </p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-gradient-to-b from-white to-yf-blue-50/20">
+      <section className="py-24 bg-gradient-to-b from-white to-yf-primary-50/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -151,10 +151,10 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-yf-blue-300 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-yf-primary-700 mb-6">
               Our Core Values
             </h2>
-            <p className="text-xl text-yf-blue-200/80 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide our work and define our approach to youth entrepreneurship research.
             </p>
           </motion.div>
@@ -169,8 +169,8 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-                  className="bg-white rounded-xl p-8 transition-all border-2 border-yf-blue-50/50 hover:border-yf-blue-100/50 group"
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(154, 205, 230, 0.2)' }}
+                  className="bg-white rounded-xl p-8 transition-all border-2 border-yf-primary-100/50 hover:border-yf-primary-300 shadow-md group"
                 >
                   <div 
                     className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
@@ -181,7 +181,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-bold mb-3" style={{ color: value.color }}>
                     {value.title}
                   </h3>
-                  <p className="text-yf-blue-200/70 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {value.description}
                   </p>
                 </motion.div>
@@ -194,8 +194,8 @@ export default function AboutPage() {
       {/* Our Process */}
       <section className="py-24 bg-white relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-yf-blue-50/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yf-blue-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-yf-primary-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yf-primary-200/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div
@@ -205,10 +205,10 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-yf-blue-300 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-yf-primary-700 mb-6">
               How We Work
             </h2>
-            <p className="text-xl text-yf-blue-200/80 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our systematic approach to creating meaningful change for young entrepreneurs worldwide.
             </p>
           </motion.div>
@@ -222,9 +222,9 @@ export default function AboutPage() {
               >
                 <defs>
                   <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#619bb6" stopOpacity="0.3" />
-                    <stop offset="50%" stopColor="#37738d" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#619bb6" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#9ACDE6" stopOpacity="0.3" />
+                    <stop offset="50%" stopColor="#6BB5D9" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#9ACDE6" stopOpacity="0.3" />
                   </linearGradient>
                 </defs>
                 <path
@@ -259,9 +259,9 @@ export default function AboutPage() {
                       whileHover={{ 
                         y: -8, 
                         scale: 1.02,
-                        boxShadow: '0 25px 50px rgba(0,78,102,0.2)' 
+                        boxShadow: '0 25px 50px rgba(154, 205, 230, 0.3)' 
                       }}
-                      className={`w-full lg:w-5/12 bg-gradient-to-br from-white to-yf-blue-50/30 border-2 border-yf-blue-50 rounded-2xl p-8 hover:border-yf-blue-200 transition-all shadow-lg ${
+                      className={`w-full lg:w-5/12 bg-gradient-to-br from-white to-yf-primary-50/30 border-2 border-yf-primary-200 rounded-2xl p-8 hover:border-yf-primary-400 transition-all shadow-lg ${
                         index % 2 === 0 ? 'lg:-ml-16' : 'lg:-mr-16'
                       }`}
                     >
@@ -269,20 +269,20 @@ export default function AboutPage() {
                         <motion.div 
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.6 }}
-                          className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-yf-blue-300 to-yf-blue-200 text-white rounded-xl flex items-center justify-center shadow-lg"
+                          className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-yf-primary to-yf-primary-500 text-white rounded-xl flex items-center justify-center shadow-lg"
                         >
                           <Icon className="w-8 h-8" />
                         </motion.div>
                         <div className="flex-grow">
                           <div className="flex items-center gap-3 mb-3">
-                            <span className="text-xs font-bold text-yf-blue-200 bg-yf-blue-50 px-3 py-1 rounded-full">
+                            <span className="text-xs font-bold text-yf-primary-700 bg-yf-primary-100 px-3 py-1 rounded-full">
                               STEP {index + 1}
                             </span>
                           </div>
-                          <h3 className="text-2xl font-bold text-yf-blue-300 mb-3">
+                          <h3 className="text-2xl font-bold text-yf-primary-700 mb-3">
                             {item.phase}
                           </h3>
-                          <p className="text-yf-blue-200/80 leading-relaxed">
+                          <p className="text-gray-600 leading-relaxed">
                             {item.description}
                           </p>
                         </div>
@@ -295,7 +295,7 @@ export default function AboutPage() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                      className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-yf-blue-300 rounded-full border-4 border-white shadow-lg items-center justify-center"
+                      className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-yf-primary rounded-full border-4 border-white shadow-lg items-center justify-center"
                     >
                       <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
                     </motion.div>
@@ -308,7 +308,7 @@ export default function AboutPage() {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-24 bg-yf-blue-300 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>

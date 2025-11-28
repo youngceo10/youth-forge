@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
 import { MapSkeleton } from '@/components/SkeletonLoader'
 
 // Dynamically import the Map component to avoid SSR issues with Leaflet
@@ -12,8 +11,6 @@ const Map = dynamic(() => import('@/components/Map'), {
 })
 
 export default function ChaptersPage() {
-  const [filter, setFilter] = useState<'all' | 'active' | 'growing'>('all')
-
   const chapters = [
     {
       id: 1,
@@ -116,24 +113,10 @@ export default function ChaptersPage() {
     },
   ]
 
-  const filteredChapters = chapters.filter(chapter => {
-    if (filter === 'all') return true
-    if (filter === 'active') return chapter.status === 'Active'
-    if (filter === 'growing') return chapter.status === 'Growing'
-    return true
-  })
-
-  const stats = [
-    { label: 'Total Chapters', value: chapters.length, color: 'yf-accent-blue' },
-    { label: 'Active Chapters', value: chapters.filter(c => c.status === 'Active').length, color: 'yf-accent-green' },
-    { label: 'Countries', value: new Set(chapters.map(c => c.country)).size, color: 'yf-accent-yellow' },
-    { label: 'Total Members', value: chapters.reduce((sum, c) => sum + c.members, 0), color: 'yf-accent-red' },
-  ]
-
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
+      <section className="relative py-24 bg-gradient-to-b from-yf-primary-50/30 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -141,34 +124,14 @@ export default function ChaptersPage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-yf-blue-300 mb-6">
-              Our Global Chapters
+            <h1 className="text-5xl md:text-6xl font-bold text-yf-primary-700 mb-6">
+              Our Research Network
             </h1>
-            <p className="text-xl text-yf-blue-200/80 leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Youth Forge operates across multiple continents with passionate young researchers 
-              and advocates working to break down barriers for teen entrepreneurs.
+              and advocates working to break down barriers for teen entrepreneurs under 18.
             </p>
           </motion.div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-                className="bg-white rounded-xl p-6 text-center shadow-lg border border-yf-blue-50/50"
-              >
-                <div className={`text-3xl md:text-4xl font-bold text-${stat.color} mb-2`}>
-                  {stat.value}
-                </div>
-                <div className="text-sm text-yf-blue-200/70 font-medium">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -181,124 +144,13 @@ export default function ChaptersPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Map chapters={filteredChapters} />
+            <Map chapters={chapters} />
           </motion.div>
         </div>
       </section>
 
-      {/* Chapter Filter & List */}
-      <section className="py-20 bg-gradient-to-b from-white to-yf-blue-50/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-yf-blue-300 mb-4 md:mb-0">
-                Chapter Directory
-              </h2>
-              
-              {/* Filter Buttons */}
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setFilter('all')}
-                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-                    filter === 'all'
-                      ? 'bg-yf-blue-300 text-white'
-                      : 'bg-white text-yf-blue-300 border border-yf-blue-100 hover:border-yf-blue-300'
-                  }`}
-                >
-                  All Chapters
-                </button>
-                <button
-                  onClick={() => setFilter('active')}
-                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-                    filter === 'active'
-                      ? 'bg-yf-accent-green text-white'
-                      : 'bg-white text-yf-accent-green border border-yf-accent-green/30 hover:border-yf-accent-green'
-                  }`}
-                >
-                  Active
-                </button>
-                <button
-                  onClick={() => setFilter('growing')}
-                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-                    filter === 'growing'
-                      ? 'bg-yf-accent-yellow text-gray-800'
-                      : 'bg-white text-yf-accent-yellow border border-yf-accent-yellow/30 hover:border-yf-accent-yellow'
-                  }`}
-                >
-                  Growing
-                </button>
-              </div>
-            </div>
-
-            {/* Chapter Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredChapters.map((chapter, index) => (
-                <motion.div
-                  key={chapter.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="bg-white rounded-xl p-6 hover:shadow-xl transition-all border-2 border-yf-blue-50/50 hover:border-yf-blue-100/50 group"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-yf-blue-300 mb-1 group-hover:text-yf-blue-200 transition-colors">
-                        {chapter.city}
-                      </h3>
-                      <p className="text-sm text-yf-blue-200/70">
-                        {chapter.country}
-                      </p>
-                    </div>
-                    <div
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        chapter.status === 'Active'
-                          ? 'bg-yf-accent-green/10 text-yf-accent-green'
-                          : 'bg-yf-accent-yellow/10 text-yellow-700'
-                      }`}
-                    >
-                      {chapter.status}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm text-yf-blue-200/70">
-                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                      </svg>
-                      {chapter.members} members
-                    </div>
-                    <div className="flex items-center text-sm text-yf-blue-200/70">
-                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                      </svg>
-                      Founded {chapter.founded}
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-yf-blue-50">
-                    <button className="text-sm font-medium text-yf-blue-300 hover:text-yf-blue-200 transition-colors flex items-center group">
-                      Learn more
-                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-yf-blue-300 text-white relative overflow-hidden">
+      {/* CTA Section - Ready to Start a Chapter */}
+      <section className="py-24 bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -311,16 +163,29 @@ export default function ChaptersPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="inline-block mb-6"
+            >
+              <svg className="w-20 h-20 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </motion.div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Start a Chapter in Your City
+              Ready to Start a Chapter?
             </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Join our global network of young researchers and advocates. Help us uncover 
-              the challenges facing teen entrepreneurs in your region.
+            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+              Join our global research network of young researchers and advocates. Help us uncover 
+              the challenges facing teen entrepreneurs in your region and drive meaningful policy change.
             </p>
-            <button className="px-8 py-4 bg-white text-yf-blue-300 rounded-lg font-medium hover:bg-yf-blue-50 transition-all hover:shadow-xl">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-white text-yf-primary-700 rounded-lg font-semibold hover:bg-yf-primary-50 transition-all hover:shadow-2xl shadow-xl"
+            >
               Apply to Start a Chapter
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </section>

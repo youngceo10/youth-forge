@@ -10,7 +10,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-yf-blue-400 text-white">
+    <footer className="bg-gradient-to-br from-yf-primary-600 via-yf-primary-700 to-yf-primary-800 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <p className="text-white/80 text-sm leading-relaxed max-w-md">
               A global market research organization focused on uncovering the hidden challenges 
-              faced by young entrepreneurs under the age of 25, advocating for youth innovation 
+              faced by young entrepreneurs under the age of 18, advocating for youth innovation 
               and inclusion regardless of age.
             </p>
           </div>
@@ -45,14 +45,7 @@ export default function Footer() {
               <li>
                 <motion.div whileHover={{ x: 4 }}>
                   <Link href="/chapters" className="text-white/80 hover:text-white text-sm transition-colors">
-                    Our Chapters
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 4 }}>
-                  <Link href="/blog" className="text-white/80 hover:text-white text-sm transition-colors">
-                    Blog
+                    Research Network
                   </Link>
                 </motion.div>
               </li>
