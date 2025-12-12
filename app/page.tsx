@@ -113,6 +113,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative"
             >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=80"
                   alt="Young entrepreneur writing business plan and research notes"
