@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 relative flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 relative flex-shrink-0">
               <StaticLogo className="w-full h-full transition-transform group-hover:scale-105" />
             </div>
             <div>
