@@ -62,7 +62,7 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-yf-primary-700 hover:bg-yf-primary-50 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-yf-primary focus:ring-offset-2"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isMenuOpen}
+            aria-expanded={isMenuOpen ? 'true' : 'false'}
             aria-controls="mobile-menu"
           >
             {isMenuOpen ? (

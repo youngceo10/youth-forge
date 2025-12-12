@@ -21,29 +21,32 @@ A professional website for Youth Forge, a youth-led nonprofit organization focus
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-2. Move your logo assets to the `public` folder:
+1. Move your logo assets to the `public` folder:
    - logo-transparent.png
    - globe-svgrepo-com.svg
    - magnifying-glass-svgrepo-com.svg
    - bar-chart-svgrepo-com.svg
    - trend-up-thin-svgrepo-com.svg
 
-3. Run the development server:
+1. Run the development server:
+
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+1. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Supabase Setup (Optional)
 
 The blog uses Supabase for content management. To set it up:
 
 1. Create a table called `blog` with the following structure:
+
 ```sql
 create table blog (
   id uuid default uuid_generate_v4() primary key,
@@ -58,11 +61,11 @@ create table blog (
 );
 ```
 
-2. The credentials are already configured in `.env.local`
+1. The credentials are already configured in `.env.local`
 
 ## Project Structure
 
-```
+```text
 youth-forge/
 ├── app/                    # Next.js app directory
 │   ├── about/             # About page
@@ -86,6 +89,7 @@ youth-forge/
 ## Color Palette
 
 Primary (Blue shades):
+
 - #8bc4e0
 - #619bb6
 - #37738d
@@ -93,6 +97,7 @@ Primary (Blue shades):
 - #002c42
 
 Accents:
+
 - Green: #7BC043
 - Red: #EF3E36
 - Blue: #0074D9

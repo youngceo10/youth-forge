@@ -51,14 +51,6 @@ export default function Home() {
                 >
                   <TypewriterText text="Challenging the status quo" />
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5 }}
-                  className="mt-4 text-xl sm:text-2xl font-semibold text-yf-primary-600"
-                >
-                  <TypewriterText text="Challenging the status quo" />
-                </motion.div>
               </motion.div>
 
               <motion.div

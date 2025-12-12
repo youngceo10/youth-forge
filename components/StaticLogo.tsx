@@ -6,7 +6,7 @@ export default function StaticLogo({ className = "w-12 h-12" }: { className?: st
   return (
     <div className={className}>
       <Image
-        src="/logo-youthforge.png"
+        src="/logo-new.png"
         alt="Youth Forge Logo"
         width={200}
         height={200}
