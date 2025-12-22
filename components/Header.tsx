@@ -1,28 +1,32 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-import StaticLogo from './StaticLogo'
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import StaticLogo from "./StaticLogo";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Research Network', href: '/chapters' },
-  ]
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Research Network", href: "/chapters" },
+    { name: "Team", href: "/team" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-yf-primary-200/30 shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 relative flex-shrink-0">
+          <Link
+            href="/"
+            className="flex items-center space-x-2 sm:space-x-3 group"
+          >
+            <div className="w-14 h-14 sm:w-16 sm:h-16 relative flex-shrink-0">
               <StaticLogo className="w-full h-full transition-transform group-hover:scale-105" />
             </div>
             <div>
@@ -30,7 +34,7 @@ export default function Header() {
                 Youth Forge
               </div>
               <div className="hidden sm:block text-xs text-yf-primary-600 -mt-1">
-                Challenging the status quo
+                Breaking down age restrictions
               </div>
             </div>
           </Link>
@@ -61,8 +65,10 @@ export default function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-yf-primary-700 hover:bg-yf-primary-50 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-yf-primary focus:ring-offset-2"
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isMenuOpen ? 'true' : 'false'}
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={isMenuOpen ? "true" : "false"}
             aria-controls="mobile-menu"
           >
             {isMenuOpen ? (
@@ -78,7 +84,7 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
               id="mobile-menu"
@@ -109,5 +115,5 @@ export default function Header() {
         </AnimatePresence>
       </nav>
     </header>
-  )
+  );
 }
