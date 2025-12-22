@@ -149,46 +149,7 @@ export default function ChaptersPage() {
         </div>
       </section>
 
-      {/* CTA Section - Ready to Start a Chapter */}
-      <section className="py-24 bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="inline-block mb-6"
-            >
-              <svg className="w-20 h-20 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Start a Chapter?
-            </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-              Join our global research network of young researchers and advocates. Help us uncover 
-              the challenges facing teen entrepreneurs in your region and drive meaningful policy change.
-            </p>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-yf-primary-700 rounded-lg font-semibold hover:bg-yf-primary-50 transition-all hover:shadow-2xl shadow-xl"
-            >
-              Apply to Start a Chapter
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+      {/* CTA Section removed per request */}
     </div>
   )
 }

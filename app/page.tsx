@@ -12,7 +12,7 @@ export default function Home() {
     { number: 8, label: "Countries", color: "#7BC043", suffix: "+" },
     { number: 50, label: "Young Researchers", color: "#9ACDE6", suffix: "+" },
     { number: 1000, label: "Youth Surveyed", color: "#EF3E36", suffix: "+" },
-    { number: 18, label: "Max Age Focus", color: "#FFDC00", suffix: "" },
+    { number: 25, label: "Max Age Focus", color: "#FFDC00", suffix: "" },
   ];
 
   return (
