@@ -86,9 +86,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} font-sans antialiased bg-white text-yf-blue-300`}>
+      <body className={`${manrope.variable} font-sans antialiased bg-black text-yf-blue-300`}>
         <Header />
-        <main className="min-h-screen pt-20">
+        <main>
           {children}
         </main>
         <Footer />

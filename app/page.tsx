@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Globe2, ArrowRight, BarChart3, Target, Search } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import TypewriterText from "@/components/TypewriterText";
 
 export default function Home() {
   const stats = [
@@ -17,164 +16,80 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section with Magnifying Glass Animation */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-b from-yf-primary-50 to-white overflow-hidden pt-20">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-yf-primary-100/40 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-yf-primary-200/30 rounded-full blur-3xl"></div>
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover"
+          >
+            <source src="https://res.cloudinary.com/djrdh7thl/video/upload/v1768330462/Untitled-2_icd2xt.mp4" type="video/mp4" />
+          </video>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Text with Magnifying Glass Animation */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative z-10"
-            >
-              {/* Hero Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="relative mb-8"
-              >
-                {/* Tagline with Typewriter */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5 }}
-                  className="mt-4 text-xl sm:text-2xl font-semibold text-yf-primary-600"
-                >
-                  <TypewriterText text="Challenging the status quo" />
-                </motion.div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-yf-primary-100/50 rounded-full"
-              >
-                <Globe2 className="w-4 h-4 text-yf-primary-600" />
-                <span className="text-sm font-medium text-yf-primary-700">
-                  Operating in 8+ Countries Worldwide
-                </span>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.8 }}
-                className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl"
-              >
-                A global research network uncovering the hidden challenges faced
-                by young entrepreneurs under 18, breaking down barriers through
-                data-driven advocacy.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-yf-primary text-white font-semibold rounded-lg hover:bg-yf-primary-600 transition-all hover:shadow-lg hover:shadow-yf-primary/30 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-yf-primary focus:ring-offset-2"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/chapters"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-white text-yf-primary-700 font-semibold rounded-lg border-2 border-yf-primary hover:bg-yf-primary-50 transition-all hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-yf-primary focus:ring-offset-2"
-                >
-                  Research Network
-                  <Globe2 className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            {/* Hero Image - Diverse Youth Collaborating */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1832&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Young entrepreneur writing business plan and research notes"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-yf-primary/20 to-transparent"></div>
-              </div>
-
-              {/* Floating accent elements */}
-              <motion.div
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-6 -right-6 w-24 h-24 bg-yf-accent-yellow rounded-full opacity-80 blur-xl"
-              ></motion.div>
-              <motion.div
-                animate={{
-                  y: [0, 15, 0],
-                  x: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-8 -left-8 w-32 h-32 bg-yf-accent-green/60 rounded-full opacity-70 blur-2xl"
-              ></motion.div>
-            </motion.div>
-          </div>
-
-          {/* Stats Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
+        {/* Hero Content */}
+        <div className="absolute bottom-24 left-0 right-0 z-20 text-center px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
-            className="mt-16 sm:mt-20"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tight whitespace-nowrap"
+            style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2.4 + index * 0.1 }}
-                  whileHover={{ y: -5, scale: 1.05 }}
-                  className="text-center p-6 rounded-xl bg-white shadow-lg border border-yf-primary-100 hover:shadow-xl hover:shadow-yf-primary/10 transition-all"
-                >
-                  <div
-                    className="text-3xl sm:text-4xl font-bold mb-2"
-                    style={{ color: stat.color }}
-                  >
-                    <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            YOUTH FORGE
+          </motion.h1>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2"
+          >
+            <span className="text-xs text-white/60 uppercase tracking-widest">Scroll</span>
+            <div className="w-px h-16 bg-gradient-to-b from-white/60 to-transparent" />
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div
+                  className="text-4xl sm:text-5xl font-bold mb-2"
+                  style={{ color: stat.color }}
+                >
+                  <AnimatedCounter end={stat.number} suffix={stat.suffix} />
+                </div>
+                <div className="text-sm text-white/60 uppercase tracking-wider">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
