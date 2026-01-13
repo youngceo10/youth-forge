@@ -71,39 +71,73 @@ export default function Home() {
 
       {/* What is Youth Forge Section */}
       <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Content */}
+        <div className="w-full px-6 lg:px-12 xl:px-20">
+          {/* Top Row - Subheading and Main Heading side by side */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-20 lg:mb-28">
+            {/* Left - Subheading */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="flex items-start gap-3"
             >
-              {/* Subheading */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-black font-bold">▬</span>
-                <span className="text-sm font-semibold uppercase tracking-widest text-black">
-                  What is Youth Forge?
-                </span>
-              </div>
+              <span className="text-black font-bold">▬</span>
+              <span className="text-sm font-semibold uppercase tracking-widest text-black">
+                What is Youth Forge?
+              </span>
+            </motion.div>
 
-              {/* Main Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight mb-6">
-                Youth Forge is a global research org uncovering challenges young entrepreneurs face.
-              </h2>
+            {/* Right - Main Heading */}
+            <motion.h2
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight"
+            >
+              Youth Forge is a global research org uncovering challenges young entrepreneurs face.
+            </motion.h2>
+          </div>
 
-              {/* Description */}
-              <p className="text-lg text-gray-600 leading-relaxed mb-10">
+          {/* Bottom Row - Images, Description, Flags (smaller scale) */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Left Content - Smaller text and image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:max-w-md"
+            >
+              {/* Smaller Image - Desktop Only */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="mb-6 hidden lg:block"
+              >
+                <Image
+                  src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332542/EDYN9_ew0crh.png"
+                  alt="Youth Forge community"
+                  width={400}
+                  height={240}
+                  className="rounded object-cover w-full"
+                />
+              </motion.div>
+
+              {/* Description - Smaller text */}
+              <p className="text-base text-gray-600 leading-relaxed mb-8">
                 We bridge data gaps for young founders to break systemic age barriers in innovation across policy tables, age restrictions for mentorship resources, and networking opportunities and funding access.
               </p>
 
               {/* Countries Section */}
-              <div className="mb-8">
-                <p className="text-sm font-semibold uppercase tracking-widest text-black mb-6">
+              <div className="mb-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-black mb-4">
                   Already engaging with founders from
                 </p>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-3">
                   {countries.map((country, index) => (
                     <motion.div
                       key={country.name}
@@ -116,9 +150,9 @@ export default function Home() {
                       <Image
                         src={`https://flagcdn.com/w80/${country.code}.png`}
                         alt={country.name}
-                        width={60}
-                        height={40}
-                        className="rounded shadow-md border border-gray-200"
+                        width={50}
+                        height={34}
+                        className="rounded-sm shadow-md border border-gray-200"
                       />
                     </motion.div>
                   ))}
@@ -131,31 +165,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="mt-8 lg:hidden"
+                className="mt-6 lg:hidden"
               >
                 <Image
                   src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
                   alt="Young entrepreneurs collaborating"
                   width={700}
                   height={500}
-                  className="rounded-lg object-cover w-full"
-                />
-              </motion.div>
-
-              {/* Smaller Image under flags - Desktop Only */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="mt-8 hidden lg:block"
-              >
-                <Image
-                  src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332542/EDYN9_ew0crh.png"
-                  alt="Youth Forge community"
-                  width={500}
-                  height={300}
-                  className="rounded-lg object-cover w-full"
+                  className="rounded object-cover w-full"
                 />
               </motion.div>
             </motion.div>
@@ -166,14 +183,14 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative hidden lg:block"
+              className="relative hidden lg:block h-full"
             >
               <Image
                 src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
                 alt="Young entrepreneurs collaborating"
                 width={700}
                 height={900}
-                className="rounded-2xl object-cover w-full h-auto lg:h-[700px]"
+                className="rounded object-cover w-full h-full sticky top-24"
               />
             </motion.div>
           </div>
