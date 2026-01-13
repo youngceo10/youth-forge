@@ -3,15 +3,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Globe2, ArrowRight, BarChart3, Target, Search } from "lucide-react";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import { ArrowRight, Search } from "lucide-react";
 
 export default function Home() {
-  const stats = [
-    { number: 8, label: "Countries", color: "#7BC043", suffix: "+" },
-    { number: 50, label: "Young Researchers", color: "#9ACDE6", suffix: "+" },
-    { number: 1000, label: "Youth Surveyed", color: "#EF3E36", suffix: "+" },
-    { number: 25, label: "Max Age Focus", color: "#FFDC00", suffix: "" },
+  const countries = [
+    { name: "USA", code: "us" },
+    { name: "Canada", code: "ca" },
+    { name: "India", code: "in" },
+    { name: "Pakistan", code: "pk" },
+    { name: "Greece", code: "gr" },
+    { name: "Japan", code: "jp" },
+    { name: "UAE", code: "ae" },
+    { name: "Ghana", code: "gh" },
+    { name: "Nigeria", code: "ng" },
   ];
 
   return (
@@ -65,119 +69,95 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div
-                  className="text-4xl sm:text-5xl font-bold mb-2"
-                  style={{ color: stat.color }}
-                >
-                  <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                </div>
-                <div className="text-sm text-white/60 uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yf-primary-700 mb-6">
-              Our Two-Step Solution
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              We&apos;re building a global movement to support youth
-              entrepreneurship through research-driven advocacy and policy
-              change.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-5xl mx-auto">
+      {/* What is Youth Forge Section */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
+              transition={{ duration: 0.8 }}
             >
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-yf-accent-green/20 rounded-full blur-2xl"></div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 20px 40px rgba(123, 192, 67, 0.15)",
-                }}
-                className="relative bg-white border-2 border-yf-primary-100 rounded-2xl p-8 hover:border-yf-accent-green/30 transition-all shadow-lg"
-              >
-                <div className="w-16 h-16 bg-yf-accent-green/10 rounded-xl flex items-center justify-center mb-6">
-                  <BarChart3 className="w-8 h-8 text-yf-accent-green" />
-                </div>
-                <div className="text-yf-accent-green font-bold text-sm mb-2">
-                  STEP #1
-                </div>
-                <h3 className="text-2xl font-bold text-yf-primary-700 mb-4">
-                  Global Research
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  We conduct comprehensive research across multiple countries
-                  including Canada, UAE, Greece, Japan, Pakistan, Uganda,
-                  Nigeria, and Ghana to identify the critical challenges faced
-                  by teen entrepreneurs and build awareness.
+              {/* Subheading */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-black font-bold">▬</span>
+                <span className="text-sm font-semibold uppercase tracking-widest text-black">
+                  What is Youth Forge?
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight mb-6">
+                Youth Forge is a global research org uncovering challenges young entrepreneurs face.
+              </h2>
+
+              {/* Description */}
+              <p className="text-lg text-gray-600 leading-relaxed mb-10">
+                We bridge data gaps for young founders to break systemic age barriers in innovation across policy tables, age restrictions for mentorship resources, and networking opportunities and funding access.
+              </p>
+
+              {/* Countries Section */}
+              <div className="mb-8">
+                <p className="text-sm font-semibold uppercase tracking-widest text-black mb-6">
+                  Already engaging with founders from
                 </p>
+                <div className="grid grid-cols-3 gap-4">
+                  {countries.map((country, index) => (
+                    <motion.div
+                      key={country.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-center justify-center"
+                    >
+                      <Image
+                        src={`https://flagcdn.com/w80/${country.code}.png`}
+                        alt={country.name}
+                        width={60}
+                        height={40}
+                        className="rounded shadow-md border border-gray-200"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Smaller Image under flags */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-8"
+              >
+                <Image
+                  src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332542/EDYN9_ew0crh.png"
+                  alt="Youth Forge community"
+                  width={500}
+                  height={300}
+                  className="rounded-lg object-cover w-full"
+                />
               </motion.div>
             </motion.div>
 
+            {/* Right Image - Larger */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-yf-accent-blue/20 rounded-full blur-2xl"></div>
-              <motion.div
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 20px 40px rgba(0, 116, 217, 0.15)",
-                }}
-                className="relative bg-white border-2 border-yf-primary-100 rounded-2xl p-8 hover:border-yf-accent-blue/30 transition-all shadow-lg"
-              >
-                <div className="w-16 h-16 bg-yf-accent-blue/10 rounded-xl flex items-center justify-center mb-6">
-                  <Target className="w-8 h-8 text-yf-accent-blue" />
-                </div>
-                <div className="text-yf-accent-blue font-bold text-sm mb-2">
-                  STEP #2
-                </div>
-                <h3 className="text-2xl font-bold text-yf-primary-700 mb-4">
-                  Policy Advocacy
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  We utilize our data by sharing it with policy tables to break
-                  barriers for young founders, opening doors to mentorship,
-                  funding, and meaningful participation in entrepreneurial
-                  ecosystems.
-                </p>
-              </motion.div>
+              <Image
+                src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
+                alt="Young entrepreneurs collaborating"
+                width={700}
+                height={900}
+                className="rounded-2xl object-cover w-full h-auto lg:h-[700px]"
+              />
             </motion.div>
           </div>
         </div>
