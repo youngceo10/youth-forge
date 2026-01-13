@@ -1,98 +1,141 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
-import StaticLogo from './StaticLogo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-br from-yf-primary-600 via-yf-primary-700 to-yf-primary-800 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-black text-white">
+      <div className="w-full px-6 lg:px-12 xl:px-20 py-16 lg:py-24">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 relative flex-shrink-0">
-                <StaticLogo className="w-full h-full" />
-              </div>
-              <div>
-                <h3 className="font-bold text-2xl">Youth Forge</h3>
-                <p className="text-sm text-white/70">Challenging the status quo</p>
-              </div>
-            </div>
-            <p className="text-white/80 text-sm leading-relaxed max-w-md">
-              A global market research organization focused on uncovering the hidden challenges 
-              faced by young entrepreneurs under the age of 18, advocating for youth innovation 
-              and inclusion regardless of age.
+          <div className="lg:col-span-1">
+            <h3 
+              className="font-black text-3xl lg:text-4xl uppercase tracking-tighter mb-4"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              YOUTH FORGE
+            </h3>
+            <p className="text-white/60 text-sm leading-relaxed">
+              A global research org uncovering challenges young entrepreneurs face.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Get Involved */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest mb-6 text-white/40">
+              Get Involved
+            </h4>
             <ul className="space-y-3">
               <li>
-                <motion.div whileHover={{ x: 4 }}>
-                  <Link href="/about" className="text-white/80 hover:text-white text-sm transition-colors">
-                    About Us
-                  </Link>
-                </motion.div>
+                <a 
+                  href="https://forms.gle/pR3r11pRsuguAks26" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Research Survey
+                </a>
               </li>
               <li>
-                <motion.div whileHover={{ x: 4 }}>
-                  <Link href="/chapters" className="text-white/80 hover:text-white text-sm transition-colors">
-                    Research Network
-                  </Link>
-                </motion.div>
+                <a 
+                  href="https://forms.gle/uu5CLy6QoC9kWsBH8" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Newsletter
+                </a>
               </li>
               <li>
-                <motion.div whileHover={{ x: 4 }}>
-                  <Link href="/contact" className="text-white/80 hover:text-white text-sm transition-colors">
-                    Get Involved
-                  </Link>
-                </motion.div>
+                <a 
+                  href="https://forms.gle/99zrr8BKh37ATNmdA" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Become a Speaker
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Research Focus */}
+          {/* Opportunities */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Research Focus</h4>
-            <ul className="space-y-3 text-sm text-white/80">
-              <li className="flex items-start group">
-                <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-yf-accent-green group-hover:scale-110 transition-transform" />
-                Youth Entrepreneurship Barriers
+            <h4 className="font-bold text-xs uppercase tracking-widest mb-6 text-white/40">
+              Opportunities
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="https://forms.gle/4CtwpPqMAf8VUsnH7" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Youth Business Advocate
+                </a>
               </li>
-              <li className="flex items-start group">
-                <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-yf-accent-blue group-hover:scale-110 transition-transform" />
-                Access to Mentorship
+              <li>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfrJBYljfrjyauUxCg-PpYDne72psIwn7Xhs0OIXK_0CAB1CQ/viewform" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
+                >
+                  Founders Wall
+                </a>
               </li>
-              <li className="flex items-start group">
-                <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-yf-accent-yellow group-hover:scale-110 transition-transform" />
-                Funding Opportunities
+            </ul>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-widest mb-6 text-white/40">
+              Navigation
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-white/80 hover:text-white text-sm transition-colors">
+                  About
+                </Link>
               </li>
-              <li className="flex items-start group">
-                <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-yf-accent-red group-hover:scale-110 transition-transform" />
-                Policy Advocacy
+              <li>
+                <Link href="/team" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Team
+                </Link>
+              </li>
+              <li>
+                <Link href="/chapters" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Chapters
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-white/60">
-              © {currentYear} Youth Forge. All rights reserved.
+            <p className="text-xs text-white/40 uppercase tracking-widest">
+              © {currentYear} Youth Forge
             </p>
             <div className="flex items-center space-x-6">
               <a 
                 href="#" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/40 hover:text-white transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -101,7 +144,7 @@ export default function Footer() {
               </a>
               <a 
                 href="#" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/40 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +153,7 @@ export default function Footer() {
               </a>
               <a 
                 href="#" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-white/40 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

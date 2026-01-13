@@ -216,59 +216,35 @@ export default function Home() {
       {/* Scroll Text Over Images Section */}
       <ScrollTextSection />
 
-      {/* CTA Section - Join the Movement */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* CTA Section - Ready to Contribute */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white min-h-screen flex items-center">
+        <div className="w-full px-6 sm:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="inline-block mb-6"
+            <h2 
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black text-black mb-12 sm:mb-16 uppercase tracking-tighter leading-[0.85]"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
             >
-              <Search className="w-16 h-16 sm:w-20 sm:h-20 text-white/90" />
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Join the Movement
+              READY TO CONTRIBUTE TO RESEARCH THAT UPLIFTS?
             </h2>
-            <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-10 leading-relaxed">
-              Help us create a more supportive environment where young founders
-              can thrive and contribute meaningfully to the economy and society.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a
+                href="https://forms.gle/pR3r11pRsuguAks26"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-black text-white rounded-lg font-semibold hover:bg-gray-900 transition-all text-lg"
               >
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-yf-primary-700 rounded-lg font-semibold hover:bg-yf-primary-50 transition-all hover:shadow-2xl shadow-xl"
-                >
-                  Get Involved
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-            </div>
+                Get Involved
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </motion.div>
           </motion.div>
         </div>
       </section>

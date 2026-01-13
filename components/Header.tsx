@@ -63,12 +63,14 @@ export default function Header() {
 
           {/* Get Involved Button - Positioned Right */}
           <div className="hidden md:block absolute right-0">
-            <Link
-              href="/contact"
+            <a
+              href="https://forms.gle/pR3r11pRsuguAks26"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-2.5 border border-white text-white text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-all"
             >
               Get Involved
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,14 +108,16 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link
-                  href="/contact"
+                <a
+                  href="https://forms.gle/pR3r11pRsuguAks26"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
                   className="block mt-4 px-6 py-3 bg-white text-black text-base font-semibold 
                            text-center uppercase tracking-wider"
                 >
                   Get Involved
-                </Link>
+                </a>
               </div>
             </motion.div>
           )}
