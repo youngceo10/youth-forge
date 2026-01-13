@@ -2,7 +2,14 @@
 
 import { useParams } from "next/navigation";
 
-const teamProfiles = {
+const teamProfiles: Record<string, {
+  name: string;
+  role: string;
+  bio: string;
+  headshot: string;
+  linkedin: string;
+  instagram: string;
+}> = {
   "sarina-mohammadi": {
     name: "Sarina Mohammadi",
     role: "Founder",

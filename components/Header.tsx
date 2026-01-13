@@ -1,17 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Hide navbar after scrolling past the hero (100vh)
+      const heroHeight = window.innerHeight;
+      setIsVisible(window.scrollY < heroHeight - 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,10 +29,25 @@ export default function Header() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-center h-20 relative">
+          {/* Logo - Positioned Left */}
+          <div className="absolute left-0">
+            <Link href="/">
+              <Image
+                src="/logo-transparent.png"
+                alt="Youth Forge"
+                width={50}
+                height={50}
+                className="w-12 h-12 object-contain"
+              />
+            </Link>
+          </div>
+
           {/* Centered Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
