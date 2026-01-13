@@ -39,12 +39,12 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="absolute bottom-24 left-0 right-0 z-20 text-center px-6">
+        <div className="absolute bottom-24 left-0 right-0 z-20 text-center px-4">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tight whitespace-nowrap"
+            className="text-7xl sm:text-8xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tight"
             style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
           >
             YOUTH FORGE
