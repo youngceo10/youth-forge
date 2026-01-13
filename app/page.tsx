@@ -94,9 +94,9 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black leading-tight"
             >
-              Youth Forge is a global research org uncovering challenges young entrepreneurs face.
+              A global research org uncovering challenges young entrepreneurs face.
             </motion.h2>
           </div>
 
