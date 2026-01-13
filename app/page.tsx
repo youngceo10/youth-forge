@@ -125,13 +125,30 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Smaller Image under flags */}
+              {/* Bigger Image - Mobile Only (after flags) */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="mt-8"
+                className="mt-8 lg:hidden"
+              >
+                <Image
+                  src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
+                  alt="Young entrepreneurs collaborating"
+                  width={700}
+                  height={500}
+                  className="rounded-lg object-cover w-full"
+                />
+              </motion.div>
+
+              {/* Smaller Image under flags - Desktop Only */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-8 hidden lg:block"
               >
                 <Image
                   src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332542/EDYN9_ew0crh.png"
@@ -143,13 +160,13 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right Image - Larger */}
+            {/* Right Image - Larger (Desktop Only) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative hidden lg:block"
             >
               <Image
                 src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
