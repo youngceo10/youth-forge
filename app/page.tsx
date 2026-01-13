@@ -115,7 +115,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
                 className="mb-6 hidden lg:block"
               >
                 <Image
@@ -128,12 +128,24 @@ export default function Home() {
               </motion.div>
 
               {/* Description - Smaller text */}
-              <p className="text-base text-gray-600 leading-relaxed mb-8">
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-base text-gray-600 leading-relaxed mb-8"
+              >
                 We bridge data gaps for young founders to break systemic age barriers in innovation across policy tables, age restrictions for mentorship resources, and networking opportunities and funding access.
-              </p>
+              </motion.p>
 
               {/* Countries Section */}
-              <div className="mb-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="mb-6"
+              >
                 <p className="text-xs font-semibold uppercase tracking-widest text-black mb-4">
                   Already engaging with founders from
                 </p>
@@ -141,10 +153,10 @@ export default function Home() {
                   {countries.map((country, index) => (
                     <motion.div
                       key={country.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: 0.5 + index * 0.08, duration: 0.4 }}
                       className="flex items-center justify-center"
                     >
                       <Image
@@ -157,14 +169,14 @@ export default function Home() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Bigger Image - Mobile Only (after flags) */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 className="mt-6 lg:hidden"
               >
                 <Image
