@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-base leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Prose styles for blog content */
+.prose-yf {
+  @apply text-yf-blue-200/80;
+}
+
+.prose-yf h2 {
+  @apply text-2xl md:text-3xl font-bold text-yf-blue-300 mt-12 mb-6;
+}
+
+.prose-yf h3 {
+  @apply text-xl md:text-2xl font-bold text-yf-blue-300 mt-8 mb-4;
+}
+
+.prose-yf p {
+  @apply mb-6 leading-relaxed;
+}
+
+.prose-yf ul, .prose-yf ol {
+  @apply mb-6 ml-6 space-y-2;
+}
+
+.prose-yf li {
+  @apply leading-relaxed;
+}
+
+.prose-yf strong {
+  @apply font-semibold text-yf-blue-300;
+}
+
+.prose-yf a {
+  @apply text-yf-blue-300 hover:text-yf-blue-200 underline transition-colors;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #619bb6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #37738d;
+}
