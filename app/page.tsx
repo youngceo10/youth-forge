@@ -70,10 +70,10 @@ export default function Home() {
       </section>
 
       {/* What is Youth Forge Section */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-12 lg:py-20 bg-white">
         <div className="w-full px-6 lg:px-12 xl:px-20">
           {/* Top Row - Subheading and Main Heading side by side */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-20 lg:mb-28">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 mb-12 lg:mb-16">
             {/* Left - Subheading */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -101,7 +101,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Row - Images, Description, Flags (smaller scale) */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Content - Smaller text and image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
