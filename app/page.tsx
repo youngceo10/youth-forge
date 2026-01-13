@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Search } from "lucide-react";
+import ScrollTextSection from "@/components/ScrollTextSection";
 
 export default function Home() {
   const countries = [
@@ -208,6 +209,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* White Space */}
+      <div className="h-16 lg:h-24 bg-white"></div>
+
+      {/* Scroll Text Over Images Section */}
+      <ScrollTextSection />
 
       {/* CTA Section - Join the Movement */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-yf-primary via-yf-primary-400 to-yf-primary-500 text-white relative overflow-hidden">
