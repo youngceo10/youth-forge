@@ -1,316 +1,237 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
-import { FlaskConical, Globe, BarChart, Pencil } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
+import dynamic from 'next/dynamic'
+import { MapSkeleton } from '@/components/SkeletonLoader'
+
+const Map = dynamic(() => import('@/components/Map'), {
+  ssr: false,
+  loading: () => <MapSkeleton />,
+})
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    interest: 'general',
-    message: ''
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-  }
+  const chapters = [
+    { id: 1, city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, members: 24, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 2, city: 'Dubai', country: 'UAE', lat: 25.2048, lng: 55.2708, members: 18, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 3, city: 'Athens', country: 'Greece', lat: 37.9838, lng: 23.7275, members: 15, status: 'Growing', founded: '2024', lead: 'Chapter Lead' },
+    { id: 4, city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, members: 22, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 5, city: 'Karachi', country: 'Pakistan', lat: 24.8607, lng: 67.0011, members: 19, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 6, city: 'Lagos', country: 'Nigeria', lat: 6.5244, lng: 3.3792, members: 21, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 7, city: 'Accra', country: 'Ghana', lat: 5.6037, lng: -0.1870, members: 17, status: 'Active', founded: '2024', lead: 'Chapter Lead' },
+    { id: 8, city: 'Mumbai', country: 'India', lat: 19.0760, lng: 72.8777, members: 26, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+  ]
 
   const opportunities = [
     {
-      icon: FlaskConical,
-      title: 'Research Intern',
-      description: 'Join our research team and help conduct surveys and analyze data from young entrepreneurs worldwide.',
-      color: 'yf-accent-green'
+      title: 'RESEARCH SURVEY',
+      description: 'Share your entrepreneurial journey and help us uncover the challenges young founders face.',
+      link: 'https://forms.gle/pR3r11pRsuguAks26',
     },
     {
-      icon: Globe,
-      title: 'Chapter Leader',
-      description: 'Start or lead a Youth Forge chapter in your city and build a community of young entrepreneurs.',
-      color: 'yf-accent-blue'
+      title: 'NEWSLETTER',
+      description: 'Stay updated with our latest research findings, events, and opportunities.',
+      link: 'https://forms.gle/uu5CLy6QoC9kWsBH8',
     },
     {
-      icon: BarChart,
-      title: 'Data Analyst',
-      description: 'Help us process and visualize research data to create impactful reports and presentations.',
-      color: 'yf-accent-yellow'
+      title: 'BECOME A SPEAKER',
+      description: 'Share your expertise and inspire young entrepreneurs at our events.',
+      link: 'https://forms.gle/99zrr8BKh37ATNmdA',
     },
     {
-      icon: Pencil,
-      title: 'Content Creator',
-      description: 'Share stories and insights from our research through blog posts, social media, and publications.',
-      color: 'yf-accent-red'
-    }
+      title: 'YOUTH ADVOCATE',
+      description: 'Join our team of advocates championing youth entrepreneurship worldwide.',
+      link: 'https://forms.gle/4CtwpPqMAf8VUsnH7',
+    },
   ]
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-primary-100/30 to-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+      <section className="relative h-screen flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp"
+            alt="Get Involved"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        
+        <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20 pb-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.85]"
+            style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-yf-primary-700 mb-6">
-              Get Involved
-            </h1>
-            <p className="text-xl text-yf-primary-600/80 leading-relaxed">
-              Join our global movement to break down barriers for young entrepreneurs. 
-              Whether you&apos;re a researcher, founder, or advocate, there&apos;s a place for you at Youth Forge.
-            </p>
-          </motion.div>
+            GET INVOLVED
+          </motion.h1>
         </div>
       </section>
 
-      {/* Opportunities */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Opportunities Grid */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-yf-primary-700 mb-6">
-              Ways to Contribute
-            </h2>
-            <p className="text-xl text-yf-primary-600/80 max-w-3xl mx-auto">
-              We&apos;re always looking for passionate young people to join our team.
-            </p>
+            <span className="text-xs font-bold uppercase tracking-widest text-black/40">
+              ▬ Ways to Contribute
+            </span>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {opportunities.map((opp, index) => {
-              const Icon = opp.icon
-              return (
-                <motion.div
-                  key={opp.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-8 border-2 border-yf-primary-100 hover:border-yf-primary-200 hover:shadow-xl transition-all group"
+          <div className="grid md:grid-cols-2 gap-px bg-black/10">
+            {opportunities.map((opp, index) => (
+              <motion.a
+                key={opp.title}
+                href={opp.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white p-8 lg:p-12 group hover:bg-black transition-all duration-300"
+              >
+                <h3 
+                  className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-4 group-hover:text-white transition-colors"
+                  style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
                 >
-                  <div 
-                    className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
-                    style={{ 
-                      backgroundColor: opp.color === 'yf-accent-green' ? '#7BC04310' :
-                                      opp.color === 'yf-accent-blue' ? '#0074D910' :
-                                      opp.color === 'yf-accent-yellow' ? '#FFDC0010' : '#EF3E3610'
-                    }}
-                  >
-                    <Icon 
-                      className="w-7 h-7" 
-                      style={{ 
-                        color: opp.color === 'yf-accent-green' ? '#7BC043' :
-                               opp.color === 'yf-accent-blue' ? '#0074D9' :
-                               opp.color === 'yf-accent-yellow' ? '#FFDC00' : '#EF3E36'
-                      }} 
-                    />
-                  </div>
-                  <h3 
-                    className="text-xl font-bold mb-3"
-                    style={{ 
-                      color: opp.color === 'yf-accent-green' ? '#7BC043' :
-                             opp.color === 'yf-accent-blue' ? '#0074D9' :
-                             opp.color === 'yf-accent-yellow' ? '#FFDC00' : '#EF3E36'
-                    }}
-                  >
-                    {opp.title}
-                  </h3>
-                  <p className="text-yf-primary-600/70 text-sm leading-relaxed">
-                    {opp.description}
-                  </p>
-                </motion.div>
-              )
-            })}
+                  {opp.title}
+                </h3>
+                <p className="text-black/60 leading-relaxed mb-6 group-hover:text-white/70 transition-colors">
+                  {opp.description}
+                </p>
+                <div className="flex items-center gap-2 text-black group-hover:text-white transition-colors">
+                  <span className="text-sm font-semibold uppercase tracking-wider">Apply Now</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                </div>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-20 bg-gradient-to-b from-white to-yf-primary-100/20">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Form */}
+      {/* Founders Wall CTA */}
+      <section className="py-24 lg:py-32 bg-black text-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-yf-primary-700 mb-6">
-                Send Us a Message
+              <span className="text-xs font-bold uppercase tracking-widest text-white/40 block mb-6">
+                ▬ Featured
+              </span>
+              <h2 
+                className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
+                style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              >
+                JOIN THE FOUNDERS WALL
               </h2>
-              <p className="text-yf-primary-600/80 mb-8">
-                Have questions or want to learn more? Fill out the form and we&apos;ll get back to you soon.
+              <p className="text-lg text-white/60 leading-relaxed mb-8">
+                Are you a young entrepreneur under 18? Apply to be featured on our Founders Wall 
+                and inspire the next generation of innovators.
               </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-yf-primary-700 mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 focus:ring-2 focus:ring-yf-primary-700/20 transition-colors"
-                    placeholder="Your name"
-                    aria-required="true"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-yf-primary-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="interest" className="block text-sm font-medium text-yf-primary-700 mb-2">
-                    I&apos;m interested in
-                  </label>
-                  <select
-                    id="interest"
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors"
-                  >
-                    <option value="general">General Inquiry</option>
-                    <option value="research">Research Internship</option>
-                    <option value="chapter">Starting a Chapter</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="volunteer">Volunteering</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-yf-primary-700 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 border-2 border-yf-primary-100 rounded-lg focus:outline-none focus:border-yf-primary-700 transition-colors resize-none"
-                    placeholder="Tell us more about your interest..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-yf-primary-700 text-white rounded-lg font-medium hover:bg-yf-primary-600 transition-all hover:shadow-lg"
-                >
-                  {submitted ? '✓ Message Sent!' : 'Send Message'}
-                </button>
-              </form>
+              <motion.a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfrJBYljfrjyauUxCg-PpYDne72psIwn7Xhs0OIXK_0CAB1CQ/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all"
+              >
+                Apply Now
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
             </motion.div>
 
-            {/* Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="relative h-[400px] lg:h-[500px]"
             >
-              <div className="bg-white rounded-xl p-8 border-2 border-yf-primary-100">
-                <h3 className="text-2xl font-bold text-yf-primary-700 mb-6">
-                  Quick Info
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-10 h-10 bg-yf-accent-blue/10 rounded-lg flex items-center justify-center mr-4">
-                      <svg className="w-5 h-5 text-yf-accent-blue" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="font-medium text-yf-primary-700 mb-1">Email</div>
-                      <a href="mailto:hello@youthforge.org" className="text-yf-primary-600/70 hover:text-yf-primary-700 transition-colors">
-                        hello@youthforge.org
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-10 h-10 bg-yf-accent-green/10 rounded-lg flex items-center justify-center mr-4">
-                      <svg className="w-5 h-5 text-yf-accent-green" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="font-medium text-yf-primary-700 mb-1">Response Time</div>
-                      <div className="text-yf-primary-600/70">
-                        Within 48 hours
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-10 h-10 bg-yf-accent-yellow/10 rounded-lg flex items-center justify-center mr-4">
-                      <svg className="w-5 h-5 text-yf-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="font-medium text-yf-primary-700 mb-1">Global Presence</div>
-                      <div className="text-yf-primary-600/70">
-                        8+ countries worldwide
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-yf-primary-700 to-yf-primary-600 rounded-xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">
-                  Join Our Community
-                </h3>
-                <p className="text-white/90 mb-6 leading-relaxed">
-                  Connect with young entrepreneurs and researchers from around the world. 
-                  Share experiences, learn from each other, and build lasting relationships.
-                </p>
-                <div className="flex gap-4">
-                  <a 
-                    href="#" 
-                    className="flex-1 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-4 text-center font-medium transition-all"
-                  >
-                    Join Discord
-                  </a>
-                  <a 
-                    href="#" 
-                    className="flex-1 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg p-4 text-center font-medium transition-all"
-                  >
-                    Follow Us
-                  </a>
-                </div>
-              </div>
+              <Image
+                src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png"
+                alt="Young founders"
+                fill
+                className="object-cover"
+              />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+              ▬ Our Global Presence
+            </span>
+            <h2 
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-black uppercase tracking-tighter leading-[0.9]"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              FIND US WORLDWIDE
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Map chapters={chapters} />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Info */}
+      <section className="py-24 lg:py-32 bg-black text-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-white/40 block mb-6">
+              ▬ Direct Contact
+            </span>
+            <h2 
+              className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              REACH OUT
+            </h2>
+            <a 
+              href="mailto:hello@youthforge.org"
+              className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white/80 hover:text-white transition-colors"
+            >
+              hello@youthforge.org
+            </a>
+          </motion.div>
         </div>
       </section>
     </div>

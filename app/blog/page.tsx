@@ -9,7 +9,6 @@ import Image from 'next/image'
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState<'all' | 'research' | 'stories' | 'insights'>('all')
 
   useEffect(() => {
     fetchPosts()
@@ -27,14 +26,12 @@ export default function BlogPage() {
       setPosts(data || [])
     } catch (error) {
       console.error('Error fetching posts:', error)
-      // Use placeholder data if Supabase isn't set up yet
       setPosts(placeholderPosts)
     } finally {
       setLoading(false)
     }
   }
 
-  // Placeholder posts for demo
   const placeholderPosts: BlogPost[] = [
     {
       id: '1',
@@ -42,7 +39,7 @@ export default function BlogPage() {
       slug: 'breaking-barriers-canada',
       excerpt: 'Our latest research reveals the unique challenges faced by young founders in the Canadian startup ecosystem.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp',
       author: 'Youth Forge Research Team',
       created_at: '2024-11-15',
       published: true,
@@ -53,7 +50,7 @@ export default function BlogPage() {
       slug: 'global-report-2024',
       excerpt: 'Comprehensive findings from our research across 8 countries highlighting systemic barriers and opportunities.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png',
       author: 'Youth Forge Research Team',
       created_at: '2024-11-10',
       published: true,
@@ -64,7 +61,7 @@ export default function BlogPage() {
       slug: 'mentorship-matters',
       excerpt: 'How connecting young founders with experienced mentors can transform entrepreneurial outcomes.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
       author: 'Sarah Chen',
       created_at: '2024-11-05',
       published: true,
@@ -75,7 +72,7 @@ export default function BlogPage() {
       slug: 'funding-age-discrimination',
       excerpt: 'Exploring how age-based barriers prevent talented teen founders from accessing capital.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg',
       author: 'Marcus Johnson',
       created_at: '2024-10-28',
       published: true,
@@ -86,7 +83,7 @@ export default function BlogPage() {
       slug: 'policy-advocacy',
       excerpt: 'Our approach to bringing youth entrepreneurship data to policy tables around the world.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp',
       author: 'Amara Okafor',
       created_at: '2024-10-20',
       published: true,
@@ -97,7 +94,7 @@ export default function BlogPage() {
       slug: 'success-stories',
       excerpt: 'Inspiring stories from young entrepreneurs who overcame systemic barriers to build successful ventures.',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800',
+      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg',
       author: 'Youth Forge Team',
       created_at: '2024-10-12',
       published: true,
@@ -107,31 +104,55 @@ export default function BlogPage() {
   const displayPosts = posts.length > 0 ? posts : placeholderPosts
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative h-screen flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg"
+            alt="Blog"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
+        <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20 pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-yf-blue-300 mb-6">
-              Insights & Research
+            <span className="text-xs font-bold uppercase tracking-widest text-white/60 block mb-6">
+              ▬ Insights & Stories
+            </span>
+            <h1 
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.85]"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              THE BLOG
             </h1>
-            <p className="text-xl text-yf-blue-200/80 leading-relaxed">
-              Exploring the challenges, opportunities, and stories of young entrepreneurs 
-              around the world through data-driven research and advocacy.
-            </p>
           </motion.div>
         </div>
       </section>
 
       {/* Featured Post */}
       {displayPosts.length > 0 && (
-        <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-24 lg:py-32 bg-white">
+          <div className="w-full px-6 lg:px-12 xl:px-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-12"
+            >
+              <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+                ▬ Featured
+              </span>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -139,31 +160,32 @@ export default function BlogPage() {
               transition={{ duration: 0.8 }}
             >
               <Link href={`/blog/${displayPosts[0].slug}`}>
-                <div className="group relative bg-gradient-to-br from-yf-blue-50/50 to-white rounded-2xl overflow-hidden border-2 border-yf-blue-50 hover:border-yf-blue-100 transition-all hover:shadow-2xl">
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="relative h-64 lg:h-auto overflow-hidden">
-                      <Image
-                        src={displayPosts[0].featured_image}
-                        alt={displayPosts[0].title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-8 lg:p-12 flex flex-col justify-center">
-                      <div className="inline-block px-3 py-1 bg-yf-accent-green/10 text-yf-accent-green text-xs font-semibold rounded-full mb-4 w-fit">
-                        Featured
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-bold text-yf-blue-300 mb-4 group-hover:text-yf-blue-200 transition-colors">
-                        {displayPosts[0].title}
-                      </h2>
-                      <p className="text-yf-blue-200/80 mb-6 leading-relaxed">
-                        {displayPosts[0].excerpt}
-                      </p>
-                      <div className="flex items-center text-sm text-yf-blue-200/70">
-                        <span className="font-medium">{displayPosts[0].author}</span>
-                        <span className="mx-2">•</span>
-                        <span>{new Date(displayPosts[0].created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                      </div>
+                <div className="group grid lg:grid-cols-2 gap-0 bg-black">
+                  <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
+                    <Image
+                      src={displayPosts[0].featured_image}
+                      alt={displayPosts[0].title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className="p-8 lg:p-12 xl:p-16 flex flex-col justify-center text-white">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-6">
+                      Latest Research
+                    </span>
+                    <h2 
+                      className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-6 leading-[0.95]"
+                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+                    >
+                      {displayPosts[0].title}
+                    </h2>
+                    <p className="text-white/60 text-lg mb-8 leading-relaxed">
+                      {displayPosts[0].excerpt}
+                    </p>
+                    <div className="flex items-center text-sm text-white/40">
+                      <span className="font-medium">{displayPosts[0].author}</span>
+                      <span className="mx-3">—</span>
+                      <span>{new Date(displayPosts[0].created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                     </div>
                   </div>
                 </div>
@@ -174,108 +196,107 @@ export default function BlogPage() {
       )}
 
       {/* Blog Grid */}
-      <section className="py-20 bg-gradient-to-b from-white to-yf-blue-50/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-24 lg:py-32 bg-black text-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-yf-blue-300 mb-12">
-              Latest Articles
+            <span className="text-xs font-bold uppercase tracking-widest text-white/40 block mb-6">
+              ▬ All Articles
+            </span>
+            <h2 
+              className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9]"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              LATEST RESEARCH
             </h2>
-
-            {loading ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-white rounded-xl overflow-hidden border border-yf-blue-50 animate-pulse">
-                    <div className="h-48 bg-yf-blue-50"></div>
-                    <div className="p-6 space-y-3">
-                      <div className="h-4 bg-yf-blue-50 rounded w-3/4"></div>
-                      <div className="h-4 bg-yf-blue-50 rounded"></div>
-                      <div className="h-4 bg-yf-blue-50 rounded w-5/6"></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {displayPosts.slice(1).map((post, index) => (
-                  <motion.div
-                    key={post.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                  >
-                    <Link href={`/blog/${post.slug}`}>
-                      <div className="group bg-white rounded-xl overflow-hidden border-2 border-yf-blue-50 hover:border-yf-blue-100 transition-all hover:shadow-xl h-full flex flex-col">
-                        <div className="relative h-48 overflow-hidden">
-                          <Image
-                            src={post.featured_image}
-                            alt={post.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <div className="p-6 flex-grow flex flex-col">
-                          <h3 className="text-xl font-bold text-yf-blue-300 mb-3 group-hover:text-yf-blue-200 transition-colors">
-                            {post.title}
-                          </h3>
-                          <p className="text-yf-blue-200/70 text-sm mb-4 flex-grow leading-relaxed">
-                            {post.excerpt}
-                          </p>
-                          <div className="flex items-center justify-between text-xs text-yf-blue-200/60 pt-4 border-t border-yf-blue-50">
-                            <span className="font-medium">{post.author}</span>
-                            <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            )}
           </motion.div>
+
+          {loading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-black p-8 animate-pulse">
+                  <div className="aspect-[16/10] bg-white/10 mb-6"></div>
+                  <div className="h-6 bg-white/10 mb-4 w-3/4"></div>
+                  <div className="h-4 bg-white/10 w-full"></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+              {displayPosts.slice(1).map((post, index) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <Link href={`/blog/${post.slug}`} className="block bg-black group hover:bg-white/5 transition-colors h-full">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={post.featured_image}
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                    <div className="p-6 lg:p-8">
+                      <h3 
+                        className="text-xl sm:text-2xl font-black uppercase tracking-tighter mb-4 leading-[0.95]"
+                        style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+                      >
+                        {post.title}
+                      </h3>
+                      <p className="text-white/50 text-sm mb-6 leading-relaxed line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center text-xs text-white/30">
+                        <span>{post.author}</span>
+                        <span className="mx-2">—</span>
+                        <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-24 bg-yf-blue-300 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      {/* Newsletter CTA */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="w-full px-6 lg:px-12 xl:px-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Stay Updated
+            <h2 
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-[0.85] mb-8"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              STAY INFORMED
             </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Get the latest research insights and stories delivered to your inbox.
+            <p className="text-xl text-black/60 max-w-2xl mx-auto mb-12">
+              Get the latest research insights, stories, and updates delivered straight to your inbox.
             </p>
-            <div className="max-w-md mx-auto">
-              <form className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-grow px-6 py-4 rounded-lg text-yf-blue-300 focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <button
-                  type="submit"
-                  className="px-8 py-4 bg-white text-yf-blue-300 rounded-lg font-medium hover:bg-yf-blue-50 transition-all hover:shadow-xl whitespace-nowrap"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+            <motion.a
+              href="https://forms.gle/uu5CLy6QoC9kWsBH8"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-semibold text-lg hover:bg-gray-900 transition-all"
+            >
+              Subscribe to Newsletter
+            </motion.a>
           </motion.div>
         </div>
       </section>
