@@ -6,6 +6,75 @@ import { useEffect, useState, useCallback } from 'react'
 import { supabase, BlogPost } from '@/lib/supabase'
 import Image from 'next/image'
 
+const placeholderPosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'Breaking Barriers: Teen Entrepreneurs in Canada',
+    slug: 'breaking-barriers-canada',
+    excerpt: 'Our latest research reveals the unique challenges faced by young founders in the Canadian startup ecosystem.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp',
+    author: 'Youth Forge Research Team',
+    created_at: '2024-11-15',
+    published: true,
+  },
+  {
+    id: '2',
+    title: 'Global Youth Entrepreneurship Report 2024',
+    slug: 'global-report-2024',
+    excerpt: 'Comprehensive findings from our research across 8 countries highlighting systemic barriers and opportunities.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png',
+    author: 'Youth Forge Research Team',
+    created_at: '2024-11-10',
+    published: true,
+  },
+  {
+    id: '3',
+    title: 'Mentorship Matters: Bridging the Gap',
+    slug: 'mentorship-matters',
+    excerpt: 'How connecting young founders with experienced mentors can transform entrepreneurial outcomes.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
+    author: 'Sarah Chen',
+    created_at: '2024-11-05',
+    published: true,
+  },
+  {
+    id: '4',
+    title: 'The Funding Challenge: Age Discrimination',
+    slug: 'funding-age-discrimination',
+    excerpt: 'Exploring how age-based barriers prevent talented teen founders from accessing capital.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg',
+    author: 'Marcus Johnson',
+    created_at: '2024-10-28',
+    published: true,
+  },
+  {
+    id: '5',
+    title: 'Policy Advocacy: Making Youth Voices Heard',
+    slug: 'policy-advocacy',
+    excerpt: 'Our approach to bringing youth entrepreneurship data to policy tables around the world.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp',
+    author: 'Amara Okafor',
+    created_at: '2024-10-20',
+    published: true,
+  },
+  {
+    id: '6',
+    title: 'Success Stories: Teen Founders Who Beat the Odds',
+    slug: 'success-stories',
+    excerpt: 'Inspiring stories from young entrepreneurs who overcame systemic barriers to build successful ventures.',
+    content: '',
+    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg',
+    author: 'Youth Forge Team',
+    created_at: '2024-10-12',
+    published: true,
+  },
+]
+
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -31,75 +100,6 @@ export default function BlogPage() {
   useEffect(() => {
     fetchPosts()
   }, [fetchPosts])
-
-  const placeholderPosts: BlogPost[] = [
-    {
-      id: '1',
-      title: 'Breaking Barriers: Teen Entrepreneurs in Canada',
-      slug: 'breaking-barriers-canada',
-      excerpt: 'Our latest research reveals the unique challenges faced by young founders in the Canadian startup ecosystem.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp',
-      author: 'Youth Forge Research Team',
-      created_at: '2024-11-15',
-      published: true,
-    },
-    {
-      id: '2',
-      title: 'Global Youth Entrepreneurship Report 2024',
-      slug: 'global-report-2024',
-      excerpt: 'Comprehensive findings from our research across 8 countries highlighting systemic barriers and opportunities.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png',
-      author: 'Youth Forge Research Team',
-      created_at: '2024-11-10',
-      published: true,
-    },
-    {
-      id: '3',
-      title: 'Mentorship Matters: Bridging the Gap',
-      slug: 'mentorship-matters',
-      excerpt: 'How connecting young founders with experienced mentors can transform entrepreneurial outcomes.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
-      author: 'Sarah Chen',
-      created_at: '2024-11-05',
-      published: true,
-    },
-    {
-      id: '4',
-      title: 'The Funding Challenge: Age Discrimination',
-      slug: 'funding-age-discrimination',
-      excerpt: 'Exploring how age-based barriers prevent talented teen founders from accessing capital.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg',
-      author: 'Marcus Johnson',
-      created_at: '2024-10-28',
-      published: true,
-    },
-    {
-      id: '5',
-      title: 'Policy Advocacy: Making Youth Voices Heard',
-      slug: 'policy-advocacy',
-      excerpt: 'Our approach to bringing youth entrepreneurship data to policy tables around the world.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp',
-      author: 'Amara Okafor',
-      created_at: '2024-10-20',
-      published: true,
-    },
-    {
-      id: '6',
-      title: 'Success Stories: Teen Founders Who Beat the Odds',
-      slug: 'success-stories',
-      excerpt: 'Inspiring stories from young entrepreneurs who overcame systemic barriers to build successful ventures.',
-      content: '',
-      featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg',
-      author: 'Youth Forge Team',
-      created_at: '2024-10-12',
-      published: true,
-    },
-  ]
 
   const displayPosts = posts.length > 0 ? posts : placeholderPosts
 

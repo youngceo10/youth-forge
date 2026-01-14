@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 const teamProfiles: Record<string, {
   name: string;
