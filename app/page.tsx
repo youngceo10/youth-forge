@@ -122,6 +122,20 @@ function CTASection() {
               )}
             </AnimatePresence>
           </div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <a
+              href="/engage"
+              className="inline-flex items-center gap-2 px-10 py-5 text-white rounded-lg font-semibold transition-all text-lg"
+              style={{ backgroundColor: '#000080' }}
+            >
+              Get Engaged
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </section>
