@@ -25,6 +25,7 @@ export default function Header() {
     { name: "About", href: "/about" },
     { name: "Research", href: "/chapters" },
     { name: "Team", href: "/team" },
+    { name: "Engage", href: "/engage" },
   ];
 
   return (
@@ -113,8 +114,9 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block mt-4 px-6 py-3 bg-white text-black text-base font-semibold 
+                  className="block mt-4 px-6 py-3 text-white text-base font-semibold 
                            text-center uppercase tracking-wider"
+                  style={{ backgroundColor: '#000080' }}
                 >
                   Get Involved
                 </a>

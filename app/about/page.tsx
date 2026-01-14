@@ -63,7 +63,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-black/40">
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
                 ▬ Our Mission
               </span>
             </motion.div>
@@ -76,19 +76,16 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 
-                className="text-4xl sm:text-5xl lg:text-6xl font-black text-black uppercase tracking-tighter leading-[0.9] mb-8"
-                style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
+                style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
               >
                 BREAKING DOWN BARRIERS FOR YOUNG FOUNDERS
               </h2>
-              <p className="text-lg text-black/60 leading-relaxed mb-6">
-                Youth Forge is a global market research organization focused on uncovering the 
-                hidden challenges faced by young entrepreneurs under the age of 18.
-              </p>
-              <p className="text-lg text-black/60 leading-relaxed">
-                We advocate for youth innovation and inclusion regardless of age, creating a more 
-                supportive environment where young dreamers can thrive and contribute meaningfully 
-                to the economy and society.
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
+                Youth Forge is breaking age restrictions in innovation through market research, 
+                uncovering the hidden challenges faced by young entrepreneurs under the age of 18. 
+                Barriers that have been long invisible to business policy makers, a problem cited 
+                by Global Entrepreneurship Monitor, reinforcing traditional innovation systems.
               </p>
             </motion.div>
           </div>
@@ -122,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="py-24 lg:py-32 bg-black text-white">
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -144,7 +141,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-black p-8 lg:p-12"
+                className="p-8 lg:p-12" style={{ backgroundColor: '#000080' }}
               >
                 <h3 
                   className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-4"
@@ -171,20 +168,20 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+              <span className="text-xs font-bold uppercase tracking-widest block mb-6" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
                 ▬ Why We Exist
               </span>
               <h2 
-                className="text-4xl sm:text-5xl lg:text-6xl font-black text-black uppercase tracking-tighter leading-[0.9] mb-8"
-                style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
+                style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
               >
                 A LARGE MAJORITY OF TEENS DREAM OF ENTREPRENEURSHIP
               </h2>
-              <p className="text-lg text-black/60 leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
                 But very few realize this dream early due to systemic barriers. We exist to change 
                 that reality by providing data-driven advocacy and creating pathways for young founders.
               </p>
-              <p className="text-lg text-black/60 leading-relaxed">
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
                 We focus specifically on founders under 18, often overlooked by other research entities, 
                 involving young researchers and experts collaborating to challenge the status quo.
               </p>
@@ -209,7 +206,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-white border-t border-black/10">
+      <section className="py-24 lg:py-32 bg-white" style={{ borderTop: '1px solid rgba(0, 0, 128, 0.1)' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -218,8 +215,8 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-[0.85] mb-12"
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-12"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
               JOIN THE MOVEMENT
             </h2>
@@ -231,7 +228,8 @@ export default function AboutPage() {
                 href="https://forms.gle/pR3r11pRsuguAks26"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-semibold text-lg hover:bg-gray-900 transition-all"
+                className="inline-flex items-center gap-3 px-10 py-5 text-white font-semibold text-lg transition-all"
+                style={{ backgroundColor: '#000080' }}
               >
                 Get Involved
                 <ArrowRight className="w-5 h-5" />

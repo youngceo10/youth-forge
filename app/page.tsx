@@ -1,10 +1,148 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Search } from "lucide-react";
 import ScrollTextSection from "@/components/ScrollTextSection";
+import { useState, useRef } from "react";
+
+// CTA Section Component with cursor image reveal
+function CTASection() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [hoveredWord, setHoveredWord] = useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const lastImageChange = useRef(0);
+
+  const images = [
+    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp",
+    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg",
+    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg",
+    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png",
+    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp",
+  ];
+
+  const words = "READY TO RESHAPE SYSTEMS WHERE AGE IS IRRELEVANT FOR INNOVATION?".split(" ");
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+      
+      // Change image every 150ms of movement
+      const now = Date.now();
+      if (now - lastImageChange.current > 150) {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        lastImageChange.current = now;
+      }
+    }
+  };
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-24 bg-white min-h-screen flex items-center">
+      <div className="w-full px-6 sm:px-8 lg:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Interactive Text Container */}
+          <div
+            ref={containerRef}
+            className="relative cursor-none mb-12 sm:mb-16"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setHoveredWord(null);
+            }}
+          >
+            {/* Text with individually hoverable words */}
+            <h2
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter leading-[0.9] relative z-10 flex flex-wrap justify-center gap-x-[0.2em] max-w-7xl mx-auto"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+            >
+              {words.map((word, index) => (
+                <span
+                  key={index}
+                  className="transition-all duration-200 inline-block"
+                  style={{
+                    color: hoveredWord === index ? 'transparent' : '#000080',
+                    WebkitTextStroke: hoveredWord === index ? '2px #000080' : 'none',
+                    textShadow: hoveredWord === index ? '0 0 30px rgba(0, 0, 128, 0.3)' : 'none',
+                  }}
+                  onMouseEnter={() => setHoveredWord(index)}
+                  onMouseLeave={() => setHoveredWord(null)}
+                >
+                  {word}
+                </span>
+              ))}
+            </h2>
+
+            {/* Cursor Following Image */}
+            <AnimatePresence>
+              {isHovering && hoveredWord !== null && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.2 }}
+                  className="pointer-events-none absolute z-20"
+                  style={{
+                    left: mousePos.x - 100,
+                    top: mousePos.y - 75,
+                    width: 200,
+                    height: 150,
+                  }}
+                >
+                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-2xl">
+                    <Image
+                      src={images[currentImageIndex]}
+                      alt="Youth Forge"
+                      fill
+                      className="object-cover"
+                      sizes="200px"
+                    />
+                    {/* Icy overlay effect */}
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(0,0,128,0.2) 50%, rgba(255,255,255,0.4) 100%)',
+                        backdropFilter: 'blur(1px)',
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <a
+              href="https://forms.gle/pR3r11pRsuguAks26"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-10 py-5 text-white rounded-lg font-semibold transition-all text-lg"
+              style={{ backgroundColor: '#000080' }}
+            >
+              Get Involved
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   const countries = [
@@ -83,8 +221,8 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="flex items-start gap-3"
             >
-              <span className="text-black font-bold">▬</span>
-              <span className="text-sm font-semibold uppercase tracking-widest text-black">
+              <span className="font-bold" style={{ color: '#000080' }}>▬</span>
+              <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: '#000080' }}>
                 What is Youth Forge?
               </span>
             </motion.div>
@@ -95,7 +233,8 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight"
+              style={{ color: '#000080' }}
             >
               A global research org uncovering challenges young entrepreneurs face.
             </motion.h2>
@@ -147,7 +286,7 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="mb-6"
               >
-                <p className="text-xs font-semibold uppercase tracking-widest text-black mb-4">
+                <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#000080' }}>
                   Already engaging with founders from
                 </p>
                 <div className="grid grid-cols-3 gap-3">
@@ -217,37 +356,7 @@ export default function Home() {
       <ScrollTextSection />
 
       {/* CTA Section - Ready to Contribute */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white min-h-screen flex items-center">
-        <div className="w-full px-6 sm:px-8 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black text-black mb-12 sm:mb-16 uppercase tracking-tighter leading-[0.85]"
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
-            >
-              READY TO CONTRIBUTE TO RESEARCH THAT UPLIFTS?
-            </h2>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="https://forms.gle/pR3r11pRsuguAks26"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-10 py-5 bg-black text-white rounded-lg font-semibold hover:bg-gray-900 transition-all text-lg"
-              >
-                Get Involved
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection />
     </div>
   );
 }

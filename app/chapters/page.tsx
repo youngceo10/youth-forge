@@ -12,15 +12,15 @@ const Map = dynamic(() => import('@/components/Map'), {
 
 export default function ChaptersPage() {
   const chapters = [
-    { id: 1, city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, members: 24, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
-    { id: 2, city: 'Dubai', country: 'UAE', lat: 25.2048, lng: 55.2708, members: 18, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
-    { id: 3, city: 'Athens', country: 'Greece', lat: 37.9838, lng: 23.7275, members: 15, status: 'Growing', founded: '2024', lead: 'Chapter Lead' },
-    { id: 4, city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, members: 22, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
-    { id: 5, city: 'Karachi', country: 'Pakistan', lat: 24.8607, lng: 67.0011, members: 19, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
-    { id: 6, city: 'Kampala', country: 'Uganda', lat: 0.3476, lng: 32.5825, members: 16, status: 'Growing', founded: '2024', lead: 'Chapter Lead' },
-    { id: 7, city: 'Lagos', country: 'Nigeria', lat: 6.5244, lng: 3.3792, members: 21, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
-    { id: 8, city: 'Accra', country: 'Ghana', lat: 5.6037, lng: -0.1870, members: 17, status: 'Active', founded: '2024', lead: 'Chapter Lead' },
-    { id: 9, city: 'Mumbai', country: 'India', lat: 19.0760, lng: 72.8777, members: 26, status: 'Active', founded: '2023', lead: 'Chapter Lead' },
+    { id: 1, city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, members: 24, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 2, city: 'Dubai', country: 'UAE', lat: 25.2048, lng: 55.2708, members: 18, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 3, city: 'Athens', country: 'Greece', lat: 37.9838, lng: 23.7275, members: 15, status: 'Growing', founded: '2025', lead: 'Chapter Lead' },
+    { id: 4, city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, members: 22, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 5, city: 'Karachi', country: 'Pakistan', lat: 24.8607, lng: 67.0011, members: 19, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 6, city: 'Kampala', country: 'Uganda', lat: 0.3476, lng: 32.5825, members: 16, status: 'Growing', founded: '2025', lead: 'Chapter Lead' },
+    { id: 7, city: 'Lagos', country: 'Nigeria', lat: 6.5244, lng: 3.3792, members: 21, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 8, city: 'Accra', country: 'Ghana', lat: 5.6037, lng: -0.1870, members: 17, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 9, city: 'Mumbai', country: 'India', lat: 19.0760, lng: 72.8777, members: 26, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
   ]
 
   const stats = [
@@ -58,7 +58,7 @@ export default function ChaptersPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 lg:py-24 bg-black text-white">
+      <section className="py-16 lg:py-24 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <div className="grid grid-cols-3 gap-8">
             {stats.map((stat, index) => (
@@ -117,8 +117,8 @@ export default function ChaptersPage() {
         </div>
       </section>
 
-      {/* Chapters List */}
-      <section className="py-24 lg:py-32 bg-black text-white">
+      {/* Cities List */}
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -128,7 +128,7 @@ export default function ChaptersPage() {
             className="mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-widest text-white/40 block mb-6">
-              ▬ Active Chapters
+              ▬ Active Cities
             </span>
           </motion.div>
 
@@ -140,7 +140,7 @@ export default function ChaptersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="bg-black p-8 group hover:bg-white/5 transition-colors"
+                className="p-8 group hover:bg-white/5 transition-colors" style={{ backgroundColor: '#000080' }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <h3 
@@ -176,12 +176,12 @@ export default function ChaptersPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-[0.85] mb-8"
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
               START A CHAPTER IN YOUR CITY
             </h2>
-            <p className="text-lg text-black/60 max-w-2xl mx-auto mb-12">
+            <p className="text-lg max-w-2xl mx-auto mb-12" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
               Lead the charge for youth entrepreneurship in your community. We provide resources, 
               training, and support to help you build a thriving local network.
             </p>
@@ -191,7 +191,8 @@ export default function ChaptersPage() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-semibold text-lg hover:bg-gray-900 transition-all"
+              className="inline-flex items-center gap-3 px-10 py-5 text-white font-semibold text-lg transition-all"
+              style={{ backgroundColor: '#000080' }}
             >
               Apply Now
             </motion.a>

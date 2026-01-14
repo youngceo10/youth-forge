@@ -148,7 +148,7 @@ export default function BlogPage() {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+              <span className="text-xs font-bold uppercase tracking-widest block mb-6" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
                 ▬ Featured
               </span>
             </motion.div>
@@ -160,7 +160,7 @@ export default function BlogPage() {
               transition={{ duration: 0.8 }}
             >
               <Link href={`/blog/${displayPosts[0].slug}`}>
-                <div className="group grid lg:grid-cols-2 gap-0 bg-black">
+                <div className="group grid lg:grid-cols-2 gap-0" style={{ backgroundColor: '#000080' }}>
                   <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
                     <Image
                       src={displayPosts[0].featured_image}
@@ -196,7 +196,7 @@ export default function BlogPage() {
       )}
 
       {/* Blog Grid */}
-      <section className="py-24 lg:py-32 bg-black text-white">
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -219,7 +219,7 @@ export default function BlogPage() {
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-black p-8 animate-pulse">
+                <div key={i} className="p-8 animate-pulse" style={{ backgroundColor: '#000080' }}>
                   <div className="aspect-[16/10] bg-white/10 mb-6"></div>
                   <div className="h-6 bg-white/10 mb-4 w-3/4"></div>
                   <div className="h-4 bg-white/10 w-full"></div>
@@ -236,7 +236,7 @@ export default function BlogPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                 >
-                  <Link href={`/blog/${post.slug}`} className="block bg-black group hover:bg-white/5 transition-colors h-full">
+                  <Link href={`/blog/${post.slug}`} className="block group hover:bg-white/5 transition-colors h-full" style={{ backgroundColor: '#000080' }}>
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
                         src={post.featured_image}
@@ -279,12 +279,12 @@ export default function BlogPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black uppercase tracking-tighter leading-[0.85] mb-8"
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
               STAY INFORMED
             </h2>
-            <p className="text-xl text-black/60 max-w-2xl mx-auto mb-12">
+            <p className="text-xl max-w-2xl mx-auto mb-12" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
               Get the latest research insights, stories, and updates delivered straight to your inbox.
             </p>
             <motion.a
@@ -293,7 +293,8 @@ export default function BlogPage() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-semibold text-lg hover:bg-gray-900 transition-all"
+              className="inline-flex items-center gap-3 px-10 py-5 text-white font-semibold text-lg transition-all"
+              style={{ backgroundColor: '#000080' }}
             >
               Subscribe to Newsletter
             </motion.a>

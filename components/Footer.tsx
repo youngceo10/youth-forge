@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="text-white" style={{ backgroundColor: '#000080' }}>
       <div className="w-full px-6 lg:px-12 xl:px-20 py-16 lg:py-24">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
@@ -19,7 +19,7 @@ export default function Footer() {
               YOUTH FORGE
             </h3>
             <p className="text-white/60 text-sm leading-relaxed">
-              A global research org uncovering challenges young entrepreneurs face.
+              Breaking age restrictions in innovation through research and making systemic issues visible.
             </p>
           </div>
 

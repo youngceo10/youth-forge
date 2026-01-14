@@ -84,12 +84,12 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-black/40">
+            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
               ▬ Ways to Contribute
             </span>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-px bg-black/10">
+          <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: 'rgba(0, 0, 128, 0.1)' }}>
             {opportunities.map((opp, index) => (
               <motion.a
                 key={opp.title}
@@ -100,7 +100,10 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-8 lg:p-12 group hover:bg-black transition-all duration-300"
+                className="bg-white p-8 lg:p-12 group transition-all duration-300"
+                style={{ ['--hover-bg' as string]: '#000080' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#000080'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
               >
                 <h3 
                   className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter mb-4 group-hover:text-white transition-colors"
@@ -108,10 +111,10 @@ export default function ContactPage() {
                 >
                   {opp.title}
                 </h3>
-                <p className="text-black/60 leading-relaxed mb-6 group-hover:text-white/70 transition-colors">
+                <p className="leading-relaxed mb-6 group-hover:text-white/70 transition-colors" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
                   {opp.description}
                 </p>
-                <div className="flex items-center gap-2 text-black group-hover:text-white transition-colors">
+                <div className="flex items-center gap-2 group-hover:text-white transition-colors" style={{ color: '#000080' }}>
                   <span className="text-sm font-semibold uppercase tracking-wider">Apply Now</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </div>
@@ -122,7 +125,7 @@ export default function ContactPage() {
       </section>
 
       {/* Founders Wall CTA */}
-      <section className="py-24 lg:py-32 bg-black text-white">
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -150,7 +153,8 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white font-semibold text-lg hover:bg-gray-100 transition-all"
+                style={{ color: '#000080' }}
               >
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
@@ -185,12 +189,12 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+            <span className="text-xs font-bold uppercase tracking-widest block mb-6" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
               ▬ Our Global Presence
             </span>
             <h2 
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-black uppercase tracking-tighter leading-[0.9]"
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9]"
+              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
               FIND US WORLDWIDE
             </h2>
@@ -208,7 +212,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-24 lg:py-32 bg-black text-white">
+      <section className="py-24 lg:py-32 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

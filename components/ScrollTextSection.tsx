@@ -89,7 +89,7 @@ function ParallaxSlide({ item, index }: { item: ScrollItem; index: number }) {
 
 export default function ScrollTextSection() {
   return (
-    <section className="relative bg-black">
+    <section className="relative" style={{ backgroundColor: '#000080' }}>
       {items.map((item, index) => (
         <ParallaxSlide key={index} item={item} index={index} />
       ))}

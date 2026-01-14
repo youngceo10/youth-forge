@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const teamMembers = [
   {
@@ -91,7 +92,7 @@ export default function TeamPage() {
       </section>
 
       {/* Roles Counter */}
-      <section className="py-16 bg-black text-white">
+      <section className="py-16 text-white" style={{ backgroundColor: '#000080' }}>
         <div className="w-full px-6 lg:px-12 xl:px-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {roles.map((role, index) => (
@@ -128,18 +129,19 @@ export default function TeamPage() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-black/40 block mb-6">
+            <span className="text-xs font-bold uppercase tracking-widest block mb-6" style={{ color: 'rgba(0, 0, 128, 0.4)' }}>
               ▬ Core Team
             </span>
             <h2 
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-black uppercase tracking-tighter leading-[0.9]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9]"
+              style={{ color: '#000080' }}
               style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
             >
               LEADERSHIP
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: 'rgba(0, 0, 128, 0.1)' }}>
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
@@ -157,7 +159,7 @@ export default function TeamPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6 bg-black text-white">
+                <div className="p-6 text-white" style={{ backgroundColor: '#000080' }}>
                   <h3 
                     className="text-xl sm:text-2xl font-black uppercase tracking-tighter mb-1"
                     style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
@@ -211,7 +213,7 @@ export default function TeamPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 128, 0.7)' }} />
         </div>
         
         <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20 text-center">
@@ -228,31 +230,18 @@ export default function TeamPage() {
               JOIN US
             </h2>
             <p className="text-xl text-white/70 max-w-2xl mx-auto mb-12">
-              Ready to make an impact? We&apos;re always looking for passionate individuals 
-              who want to shape the future of youth entrepreneurship.
+              Ready to make an impact and shape the future of entrepreneurship?
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.a
-                href="https://forms.gle/99zrr8BKh37ATNmdA"
-                target="_blank"
-                rel="noopener noreferrer"
+            <Link href="/engage">
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all"
+                className="inline-block px-10 py-5 bg-white font-semibold text-lg hover:bg-gray-100 transition-all"
+                style={{ color: '#000080' }}
               >
-                Become a Speaker
-              </motion.a>
-              <motion.a
-                href="https://forms.gle/4CtwpPqMAf8VUsnH7"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-transparent border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-all"
-              >
-                Youth Advocate
-              </motion.a>
-            </div>
+                Get Engaged
+              </motion.div>
+            </Link>
           </motion.div>
         </div>
       </section>
