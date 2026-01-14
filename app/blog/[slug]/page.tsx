@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase, BlogPost } from '@/lib/supabase'
 import { notFound } from 'next/navigation'
 
@@ -11,11 +11,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState<BlogPost | null>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    fetchPost()
-  }, [params.slug])
-
-  async function fetchPost() {
+  const fetchPost = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('blog')
@@ -33,7 +29,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [params.slug])
+
+  useEffect(() => {
+    fetchPost()
+  }, [fetchPost])
 
   function getPlaceholderPost(slug: string): BlogPost {
     const posts: Record<string, BlogPost> = {

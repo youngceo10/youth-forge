@@ -134,8 +134,7 @@ export default function TeamPage() {
             </span>
             <h2 
               className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9]"
-              style={{ color: '#000080' }}
-              style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+              style={{ color: '#000080', fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
             >
               LEADERSHIP
             </h2>

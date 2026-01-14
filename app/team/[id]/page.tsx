@@ -50,11 +50,14 @@ export default function ProfilePage() {
   return (
     <div className="p-8">
       <div className="max-w-2xl mx-auto">
-        <img
-          src={profile.headshot}
-          alt={profile.name}
-          className="w-48 h-48 object-cover rounded-full mx-auto mb-4"
-        />
+        <div className="w-48 h-48 relative rounded-full mx-auto mb-4 overflow-hidden">
+          <Image
+            src={profile.headshot}
+            alt={profile.name}
+            fill
+            className="object-cover"
+          />
+        </div>
         <h1 className="text-3xl font-bold text-center mb-2">{profile.name}</h1>
         <h2 className="text-xl text-center text-gray-600 mb-4">
           {profile.role}
