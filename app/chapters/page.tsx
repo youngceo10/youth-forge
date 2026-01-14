@@ -25,8 +25,7 @@ export default function ChaptersPage() {
 
   const stats = [
     { number: '9+', label: 'COUNTRIES' },
-    { number: '178', label: 'RESEARCHERS' },
-    { number: '8', label: 'CHAPTERS' },
+    { number: '178', label: 'VOLUNTEERS' },
   ]
 
   return (
@@ -156,8 +155,7 @@ export default function ChaptersPage() {
                   </span>
                 </div>
                 <p className="text-white/60 mb-4">{chapter.country}</p>
-                <div className="flex items-center gap-6 text-sm text-white/40">
-                  <span>{chapter.members} members</span>
+                <div className="text-sm text-white/40">
                   <span>Est. {chapter.founded}</span>
                 </div>
               </motion.div>
@@ -179,7 +177,7 @@ export default function ChaptersPage() {
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8"
               style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
-              START A CHAPTER IN YOUR CITY
+              START A CITY
             </h2>
             <p className="text-lg max-w-2xl mx-auto mb-12" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
               Lead the charge for youth entrepreneurship in your community. We provide resources, 
