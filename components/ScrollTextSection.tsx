@@ -11,7 +11,7 @@ interface ScrollItem {
 const items: ScrollItem[] = [
   {
     image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg",
-    text: "One Survey",
+    text: "Systemic Change",
   },
   {
     image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp",
@@ -19,7 +19,7 @@ const items: ScrollItem[] = [
   },
   {
     image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg",
-    text: "Impact Driven",
+    text: "Data Driven",
   },
 ];
 

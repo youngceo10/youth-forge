@@ -12,15 +12,15 @@ const Map = dynamic(() => import('@/components/Map'), {
 
 export default function ChaptersPage() {
   const chapters = [
-    { id: 1, city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, members: 24, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 2, city: 'Dubai', country: 'UAE', lat: 25.2048, lng: 55.2708, members: 18, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 3, city: 'Athens', country: 'Greece', lat: 37.9838, lng: 23.7275, members: 15, status: 'Growing', founded: '2025', lead: 'Chapter Lead' },
-    { id: 4, city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, members: 22, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 5, city: 'Karachi', country: 'Pakistan', lat: 24.8607, lng: 67.0011, members: 19, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 6, city: 'Kampala', country: 'Uganda', lat: 0.3476, lng: 32.5825, members: 16, status: 'Growing', founded: '2025', lead: 'Chapter Lead' },
-    { id: 7, city: 'Lagos', country: 'Nigeria', lat: 6.5244, lng: 3.3792, members: 21, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 8, city: 'Accra', country: 'Ghana', lat: 5.6037, lng: -0.1870, members: 17, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
-    { id: 9, city: 'Mumbai', country: 'India', lat: 19.0760, lng: 72.8777, members: 26, status: 'Active', founded: '2025', lead: 'Chapter Lead' },
+    { id: 1, city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, members: 24, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 2, city: 'Dubai', country: 'UAE', lat: 25.2048, lng: 55.2708, members: 18, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 3, city: 'Athens', country: 'Greece', lat: 37.9838, lng: 23.7275, members: 15, status: 'Growing', founded: '2025', lead: 'National HQ Lead' },
+    { id: 4, city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, members: 22, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 5, city: 'Karachi', country: 'Pakistan', lat: 24.8607, lng: 67.0011, members: 19, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 6, city: 'Kampala', country: 'Uganda', lat: 0.3476, lng: 32.5825, members: 16, status: 'Growing', founded: '2025', lead: 'National HQ Lead' },
+    { id: 7, city: 'Lagos', country: 'Nigeria', lat: 6.5244, lng: 3.3792, members: 21, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 8, city: 'Accra', country: 'Ghana', lat: 5.6037, lng: -0.1870, members: 17, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
+    { id: 9, city: 'Mumbai', country: 'India', lat: 19.0760, lng: 72.8777, members: 26, status: 'Active', founded: '2025', lead: 'National HQ Lead' },
   ]
 
   const stats = [
@@ -177,11 +177,11 @@ export default function ChaptersPage() {
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8"
               style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: '#000080' }}
             >
-              START A CITY
+              LAUNCH A NATIONAL HQ
             </h2>
             <p className="text-lg max-w-2xl mx-auto mb-12" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
-              Lead the charge for youth entrepreneurship in your community. We provide resources, 
-              training, and support to help you build a thriving local network.
+              Lead the change in your country, collaborate with leading policy makers, founders and leaders. 
+              We provide you with a mentor to provide you with the right tools along the way.
             </p>
             <motion.a
               href="https://forms.gle/pR3r11pRsuguAks26"
