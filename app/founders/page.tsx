@@ -80,9 +80,24 @@ export default function FoundersPage() {
       if (titleRef.current) titleRef.current.value = "";
       if (bioRef.current) bioRef.current.value = "";
       if (fileRef.current) fileRef.current.value = "";
-    } catch (err) {
-      console.error(err);
-      alert("Error submitting — check console for details");
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      // Attempt to extract useful messages from Supabase error objects
+      let msg = "Error submitting — check console for details";
+      if (!err) {
+        msg = String(err);
+      } else if (err.error) {
+        msg = err.error.message || JSON.stringify(err.error);
+      } else if (err.message) {
+        msg = err.message;
+      } else {
+        try {
+          msg = JSON.stringify(err);
+        } catch (e) {
+          msg = String(err);
+        }
+      }
+      alert(msg);
     } finally {
       setSubmitting(false);
     }
