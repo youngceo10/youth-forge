@@ -8,25 +8,25 @@ const opportunities = [
   {
     title: 'BECOME A SPEAKER',
     description: 'Share your entrepreneurial journey and inspire the next generation of young founders.',
-    image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp',
+    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&q=80',
     link: 'https://forms.gle/99zrr8BKh37ATNmdA',
   },
   {
     title: 'YOUTH BUSINESS ADVOCATE',
     description: 'Champion the cause of young entrepreneurs and help break down systemic barriers.',
-    image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80',
     link: 'https://forms.gle/4CtwpPqMAf8VUsnH7',
   },
   {
     title: 'JOIN OUR NEWSLETTER',
     description: 'Stay updated with the latest research, insights, and opportunities from Youth Forge.',
-    image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg',
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80',
     link: 'https://forms.gle/uu5CLy6QoC9kWsBH8',
   },
   {
     title: 'FOUNDERS WALL',
     description: 'Are you a young entrepreneur under 18? Get featured and inspire others with your story.',
-    image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
     link: 'https://docs.google.com/forms/d/e/1FAIpQLSfrJBYljfrjyauUxCg-PpYDne72psIwn7Xhs0OIXK_0CAB1CQ/viewform',
   },
 ]
@@ -38,7 +38,7 @@ export default function EngagePage() {
       <section className="relative h-[70vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp"
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80"
             alt="Get Engaged"
             fill
             className="object-cover"

@@ -13,7 +13,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'breaking-barriers-canada',
     excerpt: 'Our latest research reveals the unique challenges faced by young founders in the Canadian startup ecosystem.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp',
+    featured_image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80',
     author: 'Youth Forge Research Team',
     created_at: '2024-11-15',
     published: true,
@@ -24,7 +24,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'global-report-2024',
     excerpt: 'Comprehensive findings from our research across 8 countries highlighting systemic barriers and opportunities.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png',
+    featured_image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80',
     author: 'Youth Forge Research Team',
     created_at: '2024-11-10',
     published: true,
@@ -35,7 +35,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'mentorship-matters',
     excerpt: 'How connecting young founders with experienced mentors can transform entrepreneurial outcomes.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
+    featured_image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80',
     author: 'Sarah Chen',
     created_at: '2024-11-05',
     published: true,
@@ -46,7 +46,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'funding-age-discrimination',
     excerpt: 'Exploring how age-based barriers prevent talented teen founders from accessing capital.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg',
+    featured_image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
     author: 'Marcus Johnson',
     created_at: '2024-10-28',
     published: true,
@@ -57,7 +57,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'policy-advocacy',
     excerpt: 'Our approach to bringing youth entrepreneurship data to policy tables around the world.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp',
+    featured_image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&q=80',
     author: 'Amara Okafor',
     created_at: '2024-10-20',
     published: true,
@@ -68,7 +68,7 @@ const placeholderPosts: BlogPost[] = [
     slug: 'success-stories',
     excerpt: 'Inspiring stories from young entrepreneurs who overcame systemic barriers to build successful ventures.',
     content: '',
-    featured_image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg',
+    featured_image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80',
     author: 'Youth Forge Team',
     created_at: '2024-10-12',
     published: true,
@@ -109,7 +109,7 @@ export default function BlogPage() {
       <section className="relative h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg"
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80"
             alt="Blog"
             fill
             className="object-cover"

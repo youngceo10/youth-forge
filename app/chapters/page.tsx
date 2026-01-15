@@ -34,7 +34,7 @@ export default function ChaptersPage() {
       <section className="relative h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg"
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
             alt="Research Network"
             fill
             className="object-cover"

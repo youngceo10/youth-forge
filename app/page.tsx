@@ -17,11 +17,11 @@ function CTASection() {
   const lastImageChange = useRef(0);
 
   const images = [
-    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp",
-    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg",
-    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg",
-    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png",
-    "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
   ];
 
   const words = "READY TO RESHAPE SYSTEMS WHERE AGE IS IRRELEVANT FOR INNOVATION?".split(" ");

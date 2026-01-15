@@ -29,7 +29,7 @@ export default function AboutPage() {
       <section className="relative h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png"
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80"
             alt="Youth Forge About"
             fill
             className="object-cover"
@@ -96,7 +96,7 @@ export default function AboutPage() {
       <section className="relative h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
             alt="Young entrepreneurs"
             fill
             className="object-cover"
@@ -195,7 +195,7 @@ export default function AboutPage() {
               className="relative h-[500px] lg:h-[600px]"
             >
               <Image
-                src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg"
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
                 alt="Young entrepreneurs collaborating"
                 fill
                 className="object-cover"

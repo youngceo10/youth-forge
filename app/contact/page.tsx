@@ -52,7 +52,7 @@ export default function ContactPage() {
       <section className="relative h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332543/image1_azeopc.webp"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
             alt="Get Involved"
             fill
             className="object-cover"
@@ -169,7 +169,7 @@ export default function ContactPage() {
               className="relative h-[400px] lg:h-[500px]"
             >
               <Image
-                src="https://res.cloudinary.com/djrdh7thl/image/upload/v1768332533/image5_gsyag5.png"
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80"
                 alt="Young founders"
                 fill
                 className="object-cover"
