@@ -206,22 +206,18 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Sponsored & Recognized By - Centered logos with grayscale to color on hover */}
-      <section className="py-12 bg-white">
+      {/* Sponsored & Recognized By - Centered logos with brand-tint and hover-to-color */}
+      <section className="py-8 bg-white min-h-[50vh]">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-widest text-gray-600">
+          <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-widest text-[#000080]">
             SPONSORED & RECOGNIZED BY
           </h3>
 
           <motion.div
-            className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8 items-center justify-items-center"
+            className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6 items-center justify-items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: {},
-            }}
           >
             {/* Logo cards - transparent background, object-contain so full logo shows */}
             {[
@@ -236,13 +232,16 @@ export default function Home() {
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.12, duration: 0.5 }}
+                transition={{ delay: idx * 0.12, duration: 0.45 }}
               >
-                <div className="w-56 h-36 flex items-center justify-center overflow-hidden rounded shadow-sm bg-transparent">
-                  <img
+                <div className="w-36 h-20 sm:w-56 sm:h-36 flex items-center justify-center overflow-hidden rounded shadow-sm bg-transparent">
+                  <motion.img
                     src={item.src}
                     alt={item.label}
-                    className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-contain"
+                    initial={{ filter: 'grayscale(1) sepia(1) hue-rotate(190deg) saturate(6) brightness(0.95)' }}
+                    whileHover={{ filter: 'grayscale(0) sepia(0) saturate(1) hueRotate:0' }}
+                    transition={{ duration: 0.35 }}
                     style={{ background: 'transparent' }}
                   />
                 </div>
@@ -255,10 +254,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+              transition={{ delay: 0.5, duration: 0.45 }}
             >
-              <div className="w-56 h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
-                <span className="text-3xl font-serif font-bold uppercase tracking-widest text-gray-900">Dr Linda Show</span>
+              <div className="w-36 h-20 sm:w-56 sm:h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
+                <span className="text-2xl sm:text-3xl font-serif font-bold uppercase tracking-widest text-[#000080]">Dr Linda Show</span>
               </div>
             </motion.div>
 
@@ -267,10 +266,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ delay: 0.6, duration: 0.45 }}
             >
-              <div className="w-56 h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
-                <span className="text-2xl font-serif font-bold uppercase tracking-widest text-gray-900">Keswick Tailoring</span>
+              <div className="w-36 h-20 sm:w-56 sm:h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
+                <span className="text-xl sm:text-2xl font-serif font-bold uppercase tracking-widest text-[#000080]">Keswick Tailoring</span>
               </div>
             </motion.div>
           </motion.div>
