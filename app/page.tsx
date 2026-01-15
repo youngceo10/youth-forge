@@ -234,15 +234,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12, duration: 0.45 }}
               >
-                <div className="w-36 h-20 sm:w-56 sm:h-36 flex items-center justify-center overflow-hidden rounded shadow-sm bg-transparent">
-                  <motion.img
+                <div className="w-36 h-20 sm:w-56 sm:h-36 relative overflow-hidden rounded shadow-sm bg-transparent">
+                  <Image
                     src={item.src}
                     alt={item.label}
-                    className="w-full h-full object-contain"
-                    initial={{ filter: 'grayscale(1) sepia(1) hue-rotate(190deg) saturate(6) brightness(0.95)' }}
-                    whileHover={{ filter: 'grayscale(0) sepia(0) saturate(1) hueRotate:0' }}
-                    transition={{ duration: 0.35 }}
-                    style={{ background: 'transparent' }}
+                    fill
+                    className="object-contain filter grayscale hover:grayscale-0 transition duration-300"
+                    sizes="(max-width: 640px) 144px, (max-width: 1024px) 224px, 224px"
                   />
                 </div>
               </motion.div>
