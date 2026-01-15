@@ -10,15 +10,15 @@ interface ScrollItem {
 
 const items: ScrollItem[] = [
   {
-    image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332532/image3_cueois.jpg",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
     text: "Systemic Change",
   },
   {
-    image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80",
     text: "Ages 13 - 18",
   },
   {
-    image: "https://res.cloudinary.com/djrdh7thl/image/upload/v1768332536/image7_grnhha.jpg",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80",
     text: "Data Driven",
   },
 ];
