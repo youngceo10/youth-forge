@@ -206,6 +206,37 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Sponsored & Recognized By Strip */}
+      <section className="py-4 overflow-hidden" style={{ backgroundColor: '#000080' }}>
+        <div className="flex items-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-white/60 px-6 whitespace-nowrap">
+            Sponsored & Recognized by
+          </span>
+          <div className="flex-1 overflow-hidden">
+            <motion.div
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 15, 
+                ease: 'linear' 
+              }}
+              className="flex items-center whitespace-nowrap"
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex items-center">
+                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">TEDx</span>
+                  <span className="text-white/40">◆</span>
+                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">Rogers TV</span>
+                  <span className="text-white/40">◆</span>
+                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">Toronto News</span>
+                  <span className="text-white/40">◆</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* What is Youth Forge Section */}
       <section className="py-12 lg:py-20 bg-white">
         <div className="w-full px-6 lg:px-12 xl:px-20">
