@@ -206,34 +206,74 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Sponsored & Recognized By Strip */}
-      <section className="py-4 overflow-hidden" style={{ backgroundColor: '#000080' }}>
-        <div className="flex items-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-white/60 px-6 whitespace-nowrap">
-            Sponsored & Recognized by
-          </span>
-          <div className="flex-1 overflow-hidden">
-            <motion.div
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 15, 
-                ease: 'linear' 
-              }}
-              className="flex items-center whitespace-nowrap"
-            >
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="flex items-center">
-                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">TEDx</span>
-                  <span className="text-white/40">◆</span>
-                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">Rogers TV</span>
-                  <span className="text-white/40">◆</span>
-                  <span className="text-white font-bold text-lg uppercase tracking-wider px-6">Toronto News</span>
-                  <span className="text-white/40">◆</span>
+      {/* Sponsored & Recognized By - Centered logos with grayscale to color on hover */}
+      <section className="py-12 bg-white">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-widest text-gray-600">
+            SPONSORED & RECOGNIZED BY
+          </h3>
+
+          <motion.div
+            className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8 items-center justify-items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {},
+            }}
+          >
+            {/* Logo cards - transparent background, object-contain so full logo shows */}
+            {[
+              { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490664/WhatsApp_Image_2026-01-15_at_18.20.21_khysvf.jpg', label: 'Dr Linda Show' },
+              { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490664/tedx4450_t2sgz6.jpg', label: 'TEDx' },
+              { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490666/WhatsApp_Image_2026-01-15_at_18.18.51_tndbjf.jpg', label: 'Toronto News' },
+              { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490729/WhatsApp_Image_2026-01-15_at_18.18.03_uhqclg.jpg', label: 'Keswick Tailoring' },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.label}
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.12, duration: 0.5 }}
+              >
+                <div className="w-56 h-36 flex items-center justify-center overflow-hidden rounded shadow-sm bg-transparent">
+                  <img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-transform duration-300 hover:scale-105"
+                    style={{ background: 'transparent' }}
+                  />
                 </div>
-              ))}
+              </motion.div>
+            ))}
+
+            {/* Typographic-style logos (logo-like text) */}
+            <motion.div
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <div className="w-56 h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
+                <span className="text-3xl font-serif font-bold uppercase tracking-widest text-gray-900">Dr Linda Show</span>
+              </div>
             </motion.div>
-          </div>
+
+            <motion.div
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <div className="w-56 h-36 flex items-center justify-center rounded shadow-sm bg-transparent">
+                <span className="text-2xl font-serif font-bold uppercase tracking-widest text-gray-900">Keswick Tailoring</span>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
