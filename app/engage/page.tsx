@@ -3,13 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Engage',
-  description: 'Find ways to get involved with Youth Forge — speak, volunteer, advocate, or join the Founders Wall.',
-  pathname: '/engage',
-});
+// metadata for this route is provided globally in app/layout.tsx
 
 const opportunities = [
   {

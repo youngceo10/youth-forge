@@ -6,14 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Search } from "lucide-react";
 import ScrollTextSection from "@/components/ScrollTextSection";
 import { useState, useRef } from "react";
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Home',
-  description: 'Youth Forge — empowering young founders through research, community, and advocacy.',
-  pathname: '/',
-  image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
-});
+// page metadata is provided in app/layout.tsx (server-side)
 
 // CTA Section Component with cursor image reveal
 function CTASection() {

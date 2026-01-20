@@ -4,14 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { MapSkeleton } from '@/components/SkeletonLoader'
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Chapters',
-  description: 'Youth Forge national chapters — where we operate and how to launch a national HQ.',
-  pathname: '/chapters',
-  image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80'
-});
+// metadata provided via app/layout.tsx
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,

@@ -4,13 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'About',
-  description: 'Youth Forge is a youth-led research organisation breaking down barriers for young entrepreneurs through research, advocacy and community programs.',
-  pathname: '/about',
-});
+// metadata provided via app/layout.tsx
 
 export default function AboutPage() {
   const [offsetY, setOffsetY] = useState(0)

@@ -1,12 +1,6 @@
 "use client";
 
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Founders Wall',
-  description: 'Share your founder profile to inspire other young founders — select an avatar, preview your profile, and submit to be featured.',
-  pathname: '/founders',
-});
+// metadata for this route is provided in app/layout.tsx
 
 import { useEffect, useState, useRef } from "react";
 // using local avatars via `boring-avatars`

@@ -5,13 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState, useCallback } from 'react'
 import { supabase, BlogPost } from '@/lib/supabase'
 import Image from 'next/image'
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Blog',
-  description: 'Research, stories, and insights from young founders and our global youth entrepreneurship work.',
-  pathname: '/blog',
-});
+// metadata provided via app/layout.tsx; per-post metadata is generated server-side in blog/[slug]
 
 const placeholderPosts: BlogPost[] = [
   {
