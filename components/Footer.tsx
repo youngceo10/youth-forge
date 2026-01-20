@@ -79,14 +79,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfrJBYljfrjyauUxCg-PpYDne72psIwn7Xhs0OIXK_0CAB1CQ/viewform" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white text-sm transition-colors"
-                >
+                <Link href="/founders" className="text-white/80 hover:text-white text-sm transition-colors">
                   Founders Wall
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -105,6 +100,11 @@ export default function Footer() {
               <li>
                 <Link href="/team" className="text-white/80 hover:text-white text-sm transition-colors">
                   Team
+                </Link>
+              </li>
+              <li>
+                <Link href="/founders" className="text-white/80 hover:text-white text-sm transition-colors">
+                  Founders
                 </Link>
               </li>
               <li>

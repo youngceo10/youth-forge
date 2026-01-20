@@ -27,7 +27,7 @@ const opportunities = [
     title: 'FOUNDERS WALL',
     description: 'Are you a young entrepreneur under 18? Get featured and inspire others with your story.',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
-    link: 'https://docs.google.com/forms/d/e/1FAIpQLSfrJBYljfrjyauUxCg-PpYDne72psIwn7Xhs0OIXK_0CAB1CQ/viewform',
+    link: '/founders',
   },
 ]
 
@@ -90,8 +90,8 @@ export default function EngagePage() {
               <motion.a
                 key={opp.title}
                 href={opp.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={opp.link.startsWith('http') ? '_blank' : undefined}
+                rel={opp.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

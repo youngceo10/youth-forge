@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
+    "boring-avatars": "^2.0.4",
     "country-flag-icons": "^1.6.4",
     "framer-motion": "^10.18.0",
     "leaflet": "^1.9.4",
