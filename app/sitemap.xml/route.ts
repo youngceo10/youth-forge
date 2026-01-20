@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 
-const SITE_URL = process.env.SITE_URL || 'https://youthforge.vercel.app'
+const SITE_URL = process.env.SITE_URL || 'https://youthforge.org'
 
 const staticPages = [
   '/',

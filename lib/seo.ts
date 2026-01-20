@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-const SITE_URL = process.env.SITE_URL || 'https://youthforge.vercel.app'
+const SITE_URL = process.env.SITE_URL || 'https://youthforge.org'
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg'
 
 export function generateMetadata({

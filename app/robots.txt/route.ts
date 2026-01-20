@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const SITE_URL = process.env.SITE_URL || 'https://youthforge.vercel.app'
+const SITE_URL = process.env.SITE_URL || 'https://youthforge.org'
 
 export async function GET() {
   const lines = [
@@ -8,7 +8,7 @@ export async function GET() {
     'Disallow:',
     '',
     `Sitemap: ${SITE_URL}/sitemap.xml`,
-    'Host: youthforge.vercel.app'
+    'Host: youthforge.org'
   ]
 
   return new NextResponse(lines.join('\n'), {

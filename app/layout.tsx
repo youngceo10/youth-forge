@@ -11,8 +11,8 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  // primary site URL (current Vercel preview site); will be updated when custom domain is added
-  metadataBase: new URL('https://youthforge.vercel.app'),
+  // primary site URL (production domain)
+  metadataBase: new URL('https://youthforge.org'),
   title: {
     default: 'Youth Forge - Challenging the Status Quo',
     template: '%s | Youth Forge'
