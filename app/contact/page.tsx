@@ -5,6 +5,14 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { MapSkeleton } from '@/components/SkeletonLoader'
+import { generateMetadata } from '@/lib/seo';
+
+export const metadata = generateMetadata({
+  title: 'Contact',
+  description: 'Get involved with Youth Forge — join surveys, newsletters, or apply to speak and advocate.',
+  pathname: '/contact',
+  image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80'
+});
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,

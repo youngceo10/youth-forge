@@ -6,6 +6,15 @@ import Image from 'next/image'
 import { useEffect, useState, useCallback } from 'react'
 import { supabase, BlogPost } from '@/lib/supabase'
 import { notFound } from 'next/navigation'
+import { generateMetadata } from '@/lib/seo';
+
+// dynamic metadata generation will use a placeholder; the actual metadata can be enhanced
+// if you move this component to a server component and fetch the post at build time.
+export const metadata = generateMetadata({
+  title: 'Blog Post',
+  description: 'Read our in-depth research and stories by and for young founders.',
+  pathname: '/blog',
+});
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState<BlogPost | null>(null)
@@ -65,114 +74,153 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     }
     return posts[slug] || posts['breaking-barriers-canada']
   }
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import Image from 'next/image'
+import { supabase, BlogPost } from '@/lib/supabase'
+import { notFound } from 'next/navigation'
+import { generateMetadata as makeMeta } from '@/lib/seo'
 
-  if (loading) {
+type Params = { params: { slug: string } }
+
+export async function generateMetadata({ params }: Params) {
+  const slug = params.slug
+  try {
+    const { data, error } = await supabase
+      .from('blog')
+      .select('*')
+      .eq('slug', slug)
+      .eq('published', true)
+      .single()
+
+    if (error || !data) return makeMeta({ title: 'Blog Post', pathname: '/blog' })
+
+    return makeMeta({
+      title: data.title,
+      description: data.excerpt,
+      pathname: `/blog/${data.slug}`,
+      image: data.featured_image,
+    })
+  } catch (e) {
+    return makeMeta({ title: 'Blog Post', pathname: '/blog' })
+  }
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug
+  try {
+    const { data, error } = await supabase
+      .from('blog')
+      .select('*')
+      .eq('slug', slug)
+      .eq('published', true)
+      .single()
+
+    if (error || !data) {
+      notFound()
+    }
+
+    const post: BlogPost = data as BlogPost
+
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-yf-blue-200">Loading...</div>
+      <div className="overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Link 
+                href="/blog" 
+                className="inline-flex items-center text-yf-blue-200 hover:text-yf-blue-300 mb-8 transition-colors"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Blog
+              </Link>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yf-blue-300 mb-6">
+                {post.title}
+              </h1>
+
+              <div className="flex items-center text-yf-blue-200/70 mb-8">
+                <span className="font-medium">{post.author}</span>
+                <span className="mx-3">•</span>
+                <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Featured Image */}
+        <section className="py-8 bg-white">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative h-96 rounded-2xl overflow-hidden"
+            >
+              <Image
+                src={post.featured_image}
+                alt={post.title}
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Content */}
+        <section className="py-16 bg-white">
+          <div className="max-w-3xl mx-auto px-6 lg:px-8">
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="prose prose-lg prose-yf max-w-none"
+            >
+              <div 
+                className="text-yf-blue-200/80 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: post.content || post.excerpt }}
+              />
+            </motion.article>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 bg-yf-blue-50/30">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-yf-blue-300 mb-4">
+                Want to contribute to our research?
+              </h3>
+              <p className="text-yf-blue-200/80 mb-8">
+                Join Youth Forge and help us uncover the challenges facing young entrepreneurs.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-4 bg-yf-blue-300 text-white rounded-lg font-medium hover:bg-yf-blue-200 transition-all hover:shadow-lg"
+              >
+                Get Involved
+              </Link>
+            </motion.div>
+          </div>
+        </section>
       </div>
     )
-  }
-
-  if (!post) {
+  } catch (err) {
+    console.error('Error fetching post:', err)
     notFound()
   }
-
-  return (
-    <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-yf-blue-50/30 to-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Link 
-              href="/blog" 
-              className="inline-flex items-center text-yf-blue-200 hover:text-yf-blue-300 mb-8 transition-colors"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Blog
-            </Link>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yf-blue-300 mb-6">
-              {post.title}
-            </h1>
-
-            <div className="flex items-center text-yf-blue-200/70 mb-8">
-              <span className="font-medium">{post.author}</span>
-              <span className="mx-3">•</span>
-              <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Image */}
-      <section className="py-8 bg-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative h-96 rounded-2xl overflow-hidden"
-          >
-            <Image
-              src={post.featured_image}
-              alt={post.title}
-              fill
-              className="object-cover"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="prose prose-lg prose-yf max-w-none"
-          >
-            <div 
-              className="text-yf-blue-200/80 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: post.content || post.excerpt }}
-            />
-          </motion.article>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-yf-blue-50/30">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-yf-blue-300 mb-4">
-              Want to contribute to our research?
-            </h3>
-            <p className="text-yf-blue-200/80 mb-8">
-              Join Youth Forge and help us uncover the challenges facing young entrepreneurs.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 bg-yf-blue-300 text-white rounded-lg font-medium hover:bg-yf-blue-200 transition-all hover:shadow-lg"
-            >
-              Get Involved
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  )
 }

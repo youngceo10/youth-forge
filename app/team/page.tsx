@@ -3,6 +3,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { generateMetadata } from '@/lib/seo';
+
+export const metadata = generateMetadata({
+  title: 'Team',
+  description: 'Meet the Youth Forge team — young researchers and advocates driving youth entrepreneurship.',
+  pathname: '/team',
+  image: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332537/image64_uhmeal.webp'
+});
 
 const teamMembers = [
   {
