@@ -11,7 +11,8 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://youthforge.org'),
+  // primary site URL (current Vercel preview site); will be updated when custom domain is added
+  metadataBase: new URL('https://youthforge.vercel.app'),
   title: {
     default: 'Youth Forge - Challenging the Status Quo',
     template: '%s | Youth Forge'
@@ -40,19 +41,24 @@ export const metadata: Metadata = {
     title: 'Youth Forge - Challenging the Status Quo',
     description: 'Breaking down barriers for young entrepreneurs under 25 through research-driven advocacy and policy change.',
     images: [
+      // main share image (preferred)
       {
-        url: '/logo-transparent.png',
+        url: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg',
         width: 1200,
         height: 630,
-        alt: 'Youth Forge Logo',
-      }
+        alt: 'Youth Forge — Youth founders and innovation',
+      },
+      // fallback / random images (used by some platforms that rotate)
+      { url: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?w=1200&q=80', width: 1200, height: 630, alt: 'Youth collaboration' },
+      { url: 'https://images.unsplash.com/photo-1520975919547-1b3a5a0b0f4c?w=1200&q=80', width: 1200, height: 630, alt: 'Creative workshop' },
+      { url: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200&q=80', width: 1200, height: 630, alt: 'Students collaborating' },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Youth Forge - Challenging the Status Quo',
     description: 'Breaking down barriers for young entrepreneurs under 25 through research-driven advocacy and policy change.',
-    images: ['/logo-transparent.png'],
+    images: ['https://res.cloudinary.com/djrdh7thl/image/upload/v1768332531/image2_tdasui.jpg'],
     creator: '@youthforge',
   },
   robots: {
