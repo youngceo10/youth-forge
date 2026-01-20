@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import ScrollTextSection from "@/components/ScrollTextSection";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function CTASection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -87,17 +87,38 @@ export default function Home() {
     { name: "Nigeria", code: "ng" },
   ];
 
+  useEffect(() => {
+    let raf = 0 as number | undefined;
+    const handle = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        document.querySelectorAll('[data-parallax]').forEach((el) => {
+          const speed = parseFloat(el.getAttribute('data-speed') || '0');
+          const y = Math.round(scrollY * speed);
+          (el as HTMLElement).style.transform = `translateY(${y}px)`;
+        });
+      }) as unknown as number;
+    };
+    window.addEventListener('scroll', handle, { passive: true });
+    handle();
+    return () => {
+      window.removeEventListener('scroll', handle);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <div className="overflow-hidden">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" data-parallax data-speed="0.12" style={{ willChange: 'transform' }}>
           <video autoPlay muted loop playsInline crossOrigin="anonymous" className="w-full h-full object-cover">
             <source src="https://res.cloudinary.com/djrdh7thl/video/upload/v1768330462/Untitled-2_icd2xt.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="absolute bottom-24 left-0 right-0 z-20 text-center px-4">
+        <div className="absolute bottom-24 left-0 right-0 z-20 text-center px-4" data-parallax data-speed="-0.08" style={{ willChange: 'transform' }}>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="text-7xl sm:text-8xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tight" style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}>
             YOUTH FORGE
           </motion.h1>
@@ -114,7 +135,7 @@ export default function Home() {
       <section className="py-8 bg-white min-h-[50vh]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-widest text-[#000080]">SPONSORED & RECOGNIZED BY</h3>
-          <motion.div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6 items-center justify-items-center" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <motion.div data-parallax data-speed="0.05" style={{ willChange: 'transform' }} className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6 items-center justify-items-center" initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {[
               { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490664/WhatsApp_Image_2026-01-15_at_18.20.21_khysvf.jpg', label: 'Dr Linda Show' },
               { src: 'https://res.cloudinary.com/djrdh7thl/image/upload/v1768490664/tedx4450_t2sgz6.jpg', label: 'TEDx' },
