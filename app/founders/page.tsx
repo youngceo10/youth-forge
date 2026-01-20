@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 // using local avatars via `boring-avatars`
 import BoringAvatar from "boring-avatars";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from 'next/navigation';
 // hero background image removed per request
 
 type Founder = {
@@ -21,6 +22,7 @@ export default function FoundersPage() {
   const [submitting, setSubmitting] = useState(false);
   const [selected, setSelected] = useState<Founder | null>(null);
   const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
+  const router = useRouter();
 
   // Form draft state (controlled inputs for live preview)
   const [draft, setDraft] = useState({
@@ -344,7 +346,21 @@ export default function FoundersPage() {
                       <div className="mt-3 flex flex-wrap justify-center gap-2">
                         {location && <span className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700">{location.replace(/^Location:\s*/i,'')}</span>}
                         {website && (
-                          <a className="text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-700" href={website.replace(/^Website:\s*/i,'')} target="_blank" rel="noreferrer">Visit</a>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              const url = (website || '').replace(/^Website:\s*/i, '').trim();
+                              if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                                router.push('/founders');
+                              } else if (url) {
+                                window.open(url, '_blank', 'noopener,noreferrer');
+                              }
+                            }}
+                            className="text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-700"
+                          >
+                            Visit
+                          </button>
                         )}
                         {handle && <span className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700">{handle.replace(/^Handle:\s*/i,'')}</span>}
                         {skills && skills.slice(0,5).map((s,i)=> <span key={i} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700">{s}</span>)}
