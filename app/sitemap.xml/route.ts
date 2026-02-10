@@ -10,6 +10,7 @@ const staticPages = [
   '/contact',
   '/engage',
   '/founders',
+  '/rising-ventures',
   '/team',
   '/chapters'
 ]
