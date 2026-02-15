@@ -130,7 +130,9 @@ function ParallaxHero() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
-            href="#apply"
+            href="https://forms.gle/UXentt9F8NQ7Duz69"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-10 py-5 bg-white text-[#000080] font-bold text-lg rounded-none uppercase tracking-wider hover:bg-gray-100 transition-colors"
@@ -176,11 +178,9 @@ export default function RisingVenturesClient() {
   ];
 
   const eligibility = [
-    "Open to startups and NGOs at any stage — idea, prototype, or scaling",
-    "Founders of any age — we believe innovation has no age limit",
-    "Solo founders and teams are both welcome",
-    "Global applications accepted — no geographic restrictions",
-    "Must demonstrate real-world impact or a clear plan for it",
+    "18 or younger founders",
+    "Complete the application by April 1 2026, 11:59 PM EST",
+    "All startups and NGOs from idea to series B stage",
   ];
 
   return (
@@ -235,28 +235,51 @@ export default function RisingVenturesClient() {
           >
             In prizes distributed to startups and NGOs making a real-world impact.
           </motion.p>
+        </div>
+      </section>
 
-          {/* prize cards */}
-          <div className="mt-16 grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[
-              { place: "1st", amount: "$8,000", color: "from-yellow-300/20 to-yellow-600/10" },
-              { place: "2nd", amount: "$4,500", color: "from-gray-300/20 to-gray-400/10" },
-              { place: "3rd", amount: "$2,500", color: "from-amber-600/20 to-amber-800/10" },
-            ].map((p, i) => (
-              <motion.div
-                key={p.place}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.15, duration: 0.6 }}
-                className={`bg-gradient-to-b ${p.color} border border-white/10 rounded-sm p-8`}
-              >
-                <span className="text-xs font-bold uppercase tracking-widest text-white/50">{p.place} Place</span>
-                <p className="mt-3 text-4xl sm:text-5xl font-black text-white tracking-tighter" style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}>
-                  {p.amount}
-                </p>
-              </motion.div>
-            ))}
+      {/* ── Awards ───────────────────────────────────────────── */}
+      <section className="py-24 lg:py-36 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-bold uppercase tracking-widest block mb-4"
+            style={{ color: "rgba(0,0,128,0.4)" }}
+          >
+            ▬ Awards
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
+            style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: "#000080" }}
+          >
+            What You'll Win
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.7 }}
+            >
+              <Trophy className="w-12 h-12 mb-4" style={{ color: "#000080" }} />
+              <h3 className="text-2xl font-bold mb-2" style={{ color: "#000080" }}>$15k Total Prize Pool</h3>
+              <p style={{ color: "rgba(0,0,128,0.7)" }}>A total of $15,000 in prizes will be distributed among the winners. (We have not yet decided how much each winner gets)</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+            >
+              <Users className="w-12 h-12 mb-4" style={{ color: "#000080" }} />
+              <h3 className="text-2xl font-bold mb-2" style={{ color: "#000080" }}>Expert Advice</h3>
+              <p style={{ color: "rgba(0,0,128,0.7)" }}>Direct advice from YC founders, Open AI employees, and tailored industry experts.</p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -468,7 +491,7 @@ export default function RisingVenturesClient() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.a
-                href="https://forms.gle/pR3r11pRsuguAks26"
+                href="https://forms.gle/UXentt9F8NQ7Duz69"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -485,6 +508,10 @@ export default function RisingVenturesClient() {
                 Other Ways to Engage
               </a>
             </div>
+
+            <p className="mt-12 text-lg text-white/50 font-bold uppercase tracking-widest">
+              Deadline: 1 April 2026 11:59 pm EST
+            </p>
 
             <p className="mt-12 text-sm text-white/30 uppercase tracking-widest">
               #RisingVentures &mdash; Powered by Youth Forge
