@@ -257,7 +257,7 @@ export default function RisingVenturesClient() {
             className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
             style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", color: "#000080" }}
           >
-            What You'll Win
+            What You&rsquo;ll Win
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
