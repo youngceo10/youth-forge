@@ -92,7 +92,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} font-sans antialiased text-yf-blue-300`} style={{ backgroundColor: '#000080' }}>
+      <body className={`${manrope.variable} font-sans antialiased bg-white text-yf-blue-300`}>
         <Header />
         <main>
           {children}

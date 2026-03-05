@@ -7,10 +7,22 @@ import { ArrowRight } from 'lucide-react'
 
 const opportunities = [
   {
+    title: 'RISING VENTURES',
+    description: 'Apply to our $15,000 prize pool for young founders.',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=80',
+    link: '/rising-ventures',
+  },
+  {
     title: 'BECOME A SPEAKER',
     description: 'Share your entrepreneurial journey and inspire the next generation of young founders.',
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&q=80',
     link: 'https://forms.gle/99zrr8BKh37ATNmdA',
+  },
+  {
+    title: 'EXECUTIVE APPLICATIONS',
+    description: 'Join our team and help shape the future of Youth Forge.',
+    image: 'https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1920&q=80',
+    link: 'https://docs.google.com/forms/d/1TtxRybv0lI_eTdhgOXvFiRUxbzeC2MZickQ9FIzkRc4/edit',
   },
   {
     title: 'YOUTH BUSINESS ADVOCATE',
