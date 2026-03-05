@@ -26,6 +26,7 @@ export default function Header() {
     { name: "Research", href: "/chapters" },
     { name: "Team", href: "/team" },
     { name: "$15K", href: "/rising-ventures" },
+    { name: "SSP", href: "/tap-ssp" },
     { name: "Engage", href: "/engage" },
   ];
 

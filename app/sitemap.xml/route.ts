@@ -11,6 +11,7 @@ const staticPages = [
   '/engage',
   '/founders',
   '/rising-ventures',
+  '/tap-ssp',
   '/team',
   '/chapters'
 ]
