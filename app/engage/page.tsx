@@ -30,6 +30,18 @@ const opportunities = [
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
     link: '/founders',
   },
+  {
+    title: 'TAP SUMMER PROJECTS',
+    description: 'Apply to The Accelerators Program Summer Projects Program — 8 weeks of mentorship, workshops, and real-world venture building.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80',
+    link: '/tap-ssp',
+  },
+  {
+    title: '#RISINGVENTURES $15K',
+    description: 'Enter the #RisingVentures competition for a chance to win from the $15,000 prize pool for young entrepreneurs.',
+    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1920&q=80',
+    link: '/rising-ventures',
+  },
 ]
 
 export default function EngagePage() {
