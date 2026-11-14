@@ -83,10 +83,8 @@ export default function AboutPage() {
                 BREAKING DOWN BARRIERS FOR YOUNG FOUNDERS
               </h2>
               <p className="text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 128, 0.6)' }}>
-                Youth Forge is breaking age restrictions in innovation through market research, 
-                uncovering the hidden challenges faced by young entrepreneurs under the age of 18. 
-                Barriers that have been long invisible to business policy makers, a problem cited 
-                by Global Entrepreneurship Monitor, reinforcing traditional innovation systems.
+                Youth Forge equips the missionary under-25 founders to build and scale through funding, mentorship, and advocacy. Currently hosting Rising Ventures with a prize pool of $15k. 
+    
               </p>
             </motion.div>
           </div>
