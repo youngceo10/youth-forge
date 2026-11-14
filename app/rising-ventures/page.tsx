@@ -4,8 +4,7 @@ import { generateMetadata as seoMetadata } from '@/lib/seo';
 export const metadata = seoMetadata({
   title: '#RisingVentures — $15K for Founders',
   description:
-    'Youth Forge is giving away $15,000 to startups and NGOs. Judged by Y Combinator founders. Apply now — idea stage or already building.',
-  pathname: '/rising-ventures',
+    'Youth Forge is giving away $15,000 to startups and NGOs. Judged by Y Combinator founders and OpenAI employees. Applications are now closed. Sign up for our newsletter for updates.
   keywords: [
     'rising ventures',
     'startup funding',
